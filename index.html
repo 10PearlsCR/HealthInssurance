@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seguro de Salud BMI — 10Pearls</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#D4FF27;
+  --green-dim:rgba(212,255,39,0.13);
+  --nav:#111111;
+  --bg:#ffffff;
+  --bg-soft:#f8f9fa;
+  --bg-mid:#f0f2f4;
+  --border:#e4e4e4;
+  --gray:#3a3a3a;
+  --gray-light:#6b6b6b;
+  --max:1120px;
+}
+html{scroll-behavior:auto}
+body{font-family:'Nunito Sans',Arial,sans-serif;color:#1a1a1a;background:var(--bg);-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:var(--nav);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 60px;height:60px;
+}
+.nav-logo svg{height:24px;width:auto;display:block;}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-link{
+  font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.5);padding:8px 14px;cursor:pointer;
+  transition:color .2s;text-decoration:none;border:none;background:none;font-family:inherit;
+}
+.nav-link:hover{color:#fff;}
+.nav-cta{
+  font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:#111;background:var(--green);padding:8px 20px;text-decoration:none;
+  transition:opacity .2s;
+}
+.nav-cta:hover{opacity:.85;}
+
+/* ── HERO ── */
+.hero{
+  background:var(--nav);
+  padding:80px 60px 72px;
+  position:relative;overflow:hidden;
+}
+.hero-dots{
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px);
+  background-size:28px 28px;pointer-events:none;
+}
+.hero-glow{
+  position:absolute;top:-20%;right:-10%;
+  width:600px;height:500px;
+  background:radial-gradient(ellipse,rgba(212,255,39,0.10) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero-inner{max-width:var(--max);margin:0 auto;position:relative;z-index:1;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--green);margin-bottom:24px;
+}
+.hero-eyebrow::before{content:'';display:block;width:24px;height:2px;background:var(--green);}
+.hero h1{
+  font-size:56px;font-weight:900;letter-spacing:-2px;line-height:1.05;
+  color:#fff;margin-bottom:20px;max-width:700px;
+}
+.hero h1 em{
+  font-style:normal;
+  background:var(--green);color:#111;
+  padding:2px 10px 4px;display:inline;
+}
+.hero-sub{
+  font-size:17px;font-weight:300;color:rgba(255,255,255,0.55);
+  line-height:1.7;max-width:560px;margin-bottom:40px;
+}
+.hero-sub strong{color:rgba(255,255,255,0.85);font-weight:700;}
+.hero-stats{display:flex;gap:0;margin-top:48px;border-top:1px solid rgba(255,255,255,0.1);padding-top:40px;}
+.hero-stat{flex:1;padding-right:40px;border-right:1px solid rgba(255,255,255,0.1);margin-right:40px;}
+.hero-stat:last-child{border:none;margin:0;padding:0;}
+.hero-stat-val{font-size:32px;font-weight:900;letter-spacing:-1px;color:#fff;}
+.hero-stat-val span{color:var(--green);}
+.hero-stat-label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-top:5px;}
+
+/* ── SECTION WRAPPER ── */
+section{padding:80px 60px;}
+.section-inner{max-width:var(--max);margin:0 auto;}
+section.alt{background:var(--bg-soft);}
+
+/* ── SECTION HEADER ── */
+.section-tag{
+  font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gray-light);display:flex;align-items:center;gap:10px;margin-bottom:14px;
+}
+.section-tag::before{content:'';display:block;width:20px;height:2px;background:var(--green);}
+.section-h{font-size:38px;font-weight:900;letter-spacing:-1.2px;line-height:1.15;color:#1a1a1a;margin-bottom:14px;}
+.section-h em{font-style:normal;background:var(--green);color:#111;padding:1px 8px 3px;display:inline;}
+.section-lead{font-size:16px;font-weight:400;color:var(--gray);line-height:1.75;max-width:640px;margin-bottom:48px;}
+
+/* ── VIDA HERO CARD ── */
+.vida-hero{
+  background:var(--nav);border-radius:0;
+  padding:40px 48px;margin-bottom:12px;
+  display:flex;align-items:center;justify-content:space-between;gap:40px;
+}
+.vida-hero-text{}
+.vida-hero-title{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:8px;}
+.vida-hero-amount{font-size:52px;font-weight:900;letter-spacing:-2px;color:#fff;}
+.vida-hero-amount span{color:var(--green);}
+.vida-hero-desc{font-size:14px;color:rgba(255,255,255,0.5);margin-top:8px;line-height:1.6;}
+.vida-tag{
+  background:var(--green);color:#111;
+  font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+  padding:10px 24px;white-space:nowrap;
+}
+
+/* ── BENEFIT CARDS GRID ── */
+.benefit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.benefit-card{
+  background:var(--bg-soft);border:1px solid var(--border);
+  padding:24px;transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+.benefit-card:hover{border-color:rgba(90,110,0,.3);transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,0.07);}
+.benefit-card-icon{
+  width:36px;height:36px;background:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  color:#111;margin-bottom:14px;
+}
+.benefit-card-icon svg{width:18px;height:18px;}
+.benefit-card-title{font-size:15px;font-weight:800;color:#1a1a1a;margin-bottom:6px;}
+.benefit-card-desc{font-size:14px;font-weight:400;color:var(--gray);line-height:1.65;}
+.benefit-card-amount{
+  display:inline-block;margin-top:10px;
+  font-size:11px;font-weight:700;letter-spacing:1px;
+  background:var(--green-dim);color:#3a4a00;
+  padding:4px 10px;
+}
+
+/* ── COVERAGE TABLE ── */
+.cov-row{
+  display:flex;align-items:stretch;
+  border-bottom:1px solid var(--border);
+}
+.cov-row:first-child{border-top:1px solid var(--border);}
+.cov-label{
+  width:42%;flex-shrink:0;padding:16px 20px;
+  font-size:14px;font-weight:700;color:#1a1a1a;
+  background:var(--bg-soft);border-right:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;
+}
+.cov-label svg{width:16px;height:16px;flex-shrink:0;color:var(--gray-light);}
+.cov-val{
+  flex:1;padding:16px 20px;
+  font-size:14px;font-weight:400;color:var(--gray);
+  display:flex;align-items:center;
+}
+.cov-tag{
+  font-size:11px;font-weight:700;letter-spacing:.5px;
+  padding:3px 10px;margin-left:auto;white-space:nowrap;flex-shrink:0;
+}
+.cov-tag.green{background:var(--green);color:#111;}
+.cov-tag.gray{background:var(--bg-mid);color:var(--gray);}
+
+/* ── PARTICIPATION BOX ── */
+.part-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;}
+.part-card{
+  padding:24px;text-align:center;
+  border:1px solid var(--border);background:var(--bg-soft);
+}
+.part-card-val{font-size:28px;font-weight:900;letter-spacing:-1px;color:#1a1a1a;margin-bottom:6px;}
+.part-card-val span{color:#1a1a1a;}
+.part-card-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray-light);}
+.part-card-desc{font-size:13px;font-weight:400;color:var(--gray);margin-top:8px;line-height:1.5;}
+
+/* ── HIGHLIGHT / NOTE ── */
+.highlight{
+  background:var(--green-dim);border-left:3px solid var(--green);
+  padding:16px 20px;margin:20px 0;
+  font-size:15px;font-weight:600;color:#1a1a1a;line-height:1.65;
+}
+.note{
+  background:var(--bg-mid);border:1px solid var(--border);
+  padding:16px 20px;margin:20px 0;
+  font-size:14px;font-weight:400;color:var(--gray);line-height:1.7;
+}
+.note strong{color:#1a1a1a;font-weight:700;}
+.warning{
+  background:#fff8e1;border:1px solid #ffe082;border-left:3px solid #f59e0b;
+  padding:14px 18px;margin:20px 0;
+  font-size:14px;font-weight:600;color:#92400e;line-height:1.6;
+}
+
+/* ── TWO COLS ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.two-col-wide{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:start;}
+
+/* ── ACCORDION ── */
+.accordion{border:1px solid var(--border);margin-bottom:8px;overflow:hidden;}
+.acc-header{
+  display:flex;align-items:center;gap:16px;padding:18px 22px;
+  cursor:pointer;background:var(--bg-soft);
+  transition:background .2s;user-select:none;
+}
+.acc-header:hover{background:var(--bg-mid);}
+.acc-header.open{background:var(--nav);}
+.acc-header.open .acc-title{color:#fff;}
+.acc-header.open .acc-icon-wrap{background:var(--green);}
+.acc-header.open .acc-arrow{color:var(--green);}
+.acc-icon-wrap{
+  width:32px;height:32px;flex-shrink:0;
+  background:var(--bg-mid);display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.acc-icon-wrap svg{width:16px;height:16px;color:#1a1a1a;}
+.acc-title{font-size:15px;font-weight:800;color:#1a1a1a;flex:1;transition:color .2s;}
+.acc-subtitle{font-size:12px;font-weight:600;color:var(--gray-light);}
+.acc-arrow{margin-left:auto;flex-shrink:0;color:var(--gray-light);transition:transform .25s,color .2s;}
+.acc-arrow svg{width:16px;height:16px;}
+.acc-header.open .acc-arrow{transform:rotate(90deg);}
+.acc-body{display:none;padding:24px 22px;border-top:1px solid var(--border);}
+.acc-body.open{display:block;}
+.acc-body ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.acc-body li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:14px;color:var(--gray);line-height:1.6;padding:10px 14px;
+  background:var(--bg-soft);border:1px solid var(--border);
+}
+.acc-body li::before{
+  content:'';display:block;width:6px;height:6px;border-radius:50%;
+  background:var(--green);margin-top:7px;flex-shrink:0;
+}
+.acc-body li strong{color:#1a1a1a;font-weight:700;}
+
+/* ── STEPS ── */
+.steps{display:flex;flex-direction:column;gap:0;}
+.step{display:flex;gap:20px;align-items:stretch;}
+.step-left{display:flex;flex-direction:column;align-items:center;}
+.step-num-wrap{
+  width:36px;height:36px;background:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:900;color:#111;flex-shrink:0;
+}
+.step-line{width:2px;flex:1;background:var(--border);margin:0 auto;}
+.step:last-child .step-line{display:none;}
+.step-right{flex:1;padding:0 0 24px;}
+.step-title{font-size:15px;font-weight:800;color:#1a1a1a;margin-bottom:4px;padding-top:6px;}
+.step-desc{font-size:14px;font-weight:400;color:var(--gray);line-height:1.6;}
+.step-link{
+  display:inline-block;margin-top:6px;
+  font-size:12px;font-weight:700;letter-spacing:.5px;
+  color:#3a6a00;text-decoration:underline;word-break:break-all;
+}
+
+/* ── EXCLUSION GRID ── */
+.excl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.excl-card{
+  padding:20px;border:1px solid var(--border);background:var(--bg-soft);
+  display:flex;flex-direction:column;gap:8px;
+}
+.excl-num{
+  width:28px;height:28px;background:#1a1a1a;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:900;color:#fff;
+}
+.excl-title{font-size:14px;font-weight:800;color:#1a1a1a;}
+.excl-desc{font-size:13px;font-weight:400;color:var(--gray);line-height:1.55;}
+
+/* ── CONTACT CARDS ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.contact-card{
+  background:var(--nav);padding:32px;
+}
+.contact-card-role{
+  font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--green);margin-bottom:12px;
+}
+.contact-card-name{font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;line-height:1.2;}
+.contact-item{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.contact-item svg{width:14px;height:14px;color:rgba(255,255,255,0.4);flex-shrink:0;}
+.contact-item a,.contact-item span{font-size:14px;color:rgba(255,255,255,0.7);text-decoration:none;}
+.contact-item a:hover{color:#fff;}
+.contact-schedule{
+  margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);
+  font-size:12px;color:rgba(255,255,255,0.4);line-height:1.6;
+}
+.contact-24{
+  display:inline-block;margin-bottom:10px;
+  background:var(--green);color:#111;
+  font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+  padding:4px 10px;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--nav);padding:32px 60px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid rgba(255,255,255,0.07);
+}
+.footer-left{display:flex;align-items:center;gap:20px;}
+.footer-divider{width:1px;height:20px;background:rgba(255,255,255,0.15);}
+.footer-text{font-size:11px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,0.3);}
+.footer-copy{font-size:11px;font-weight:600;letter-spacing:.5px;color:rgba(255,255,255,0.2);}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:#d4d4d4;border-radius:3px;}
+
+
+@media(max-width:900px){
+  nav{padding:0 24px;}
+  .nav-links{display:none;}
+  .hero{padding:48px 24px 56px;}
+  .hero h1{font-size:36px;}
+  section{padding:56px 24px;}
+  .benefit-grid,.two-col,.two-col-wide,.part-grid,.excl-grid,.contact-grid{grid-template-columns:1fr;}
+  .hero-stats{flex-direction:column;gap:24px;}
+  .hero-stat{border:none;padding:0;margin:0;}
+  .vida-hero{flex-direction:column;padding:28px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg viewBox="0 0 204 59" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#nl)"><path d="M71.0275 35.2071V47.1559H63.2139V12.4644H75.4613C84.1952 12.4644 88.5789 16.146 88.5789 23.5261C88.5789 27.007 87.324 29.8352 84.8143 31.9773C82.3045 34.1194 78.9582 35.2071 74.7586 35.2071H71.0275ZM71.0275 18.4555V29.2662H74.1061C78.2722 29.2662 80.3469 27.4421 80.3469 23.7939C80.3469 20.1457 78.2722 18.4387 74.1061 18.4387H71.0275V18.4555Z" fill="white"/><path d="M112.289 36.9474H96.126C96.377 40.5454 98.6525 42.336 102.919 42.336C105.646 42.336 108.039 41.6833 110.097 40.4115V45.934C107.805 47.1557 104.843 47.7749 101.179 47.7749C97.1801 47.7749 94.0848 46.6703 91.8595 44.4446C89.6509 42.2356 88.5466 39.1396 88.5466 35.1735C88.5466 31.2073 89.7346 27.7933 92.1272 25.4003C94.5198 22.9904 97.4478 21.8022 100.928 21.8022C104.408 21.8022 107.336 22.8733 109.31 25.0154C111.285 27.1574 112.272 30.086 112.272 33.751V36.9641L112.289 36.9474ZM105.211 32.2448C105.211 28.697 103.772 26.9231 100.894 26.9231C99.6731 26.9231 98.6023 27.4252 97.7155 28.446C96.812 29.4668 96.2766 30.7387 96.0758 32.2448H105.194H105.211Z" fill="white"/><path d="M136.515 47.1554H129.287V43.5909H129.187C127.53 46.3689 125.071 47.7579 121.808 47.7579C119.399 47.7579 117.508 47.0885 116.119 45.7162C114.747 44.3607 114.061 42.5199 114.061 40.2606C114.061 35.4577 116.906 32.6797 122.594 31.9434L129.32 31.0564C129.32 28.3454 127.848 26.9899 124.903 26.9899C121.959 26.9899 119.148 27.8601 116.487 29.6172V23.8604C117.558 23.3082 119.014 22.8229 120.854 22.4045C122.695 21.9861 124.385 21.7686 125.907 21.7686C132.968 21.7686 136.498 25.2996 136.498 32.345V47.1554H136.515ZM129.337 37.081V35.4075L124.836 35.9932C122.343 36.3112 121.105 37.4324 121.105 39.357C121.105 40.2272 121.406 40.9468 122.009 41.499C122.628 42.0513 123.431 42.3358 124.468 42.3358C125.907 42.3358 127.062 41.8337 127.982 40.8464C128.885 39.859 129.337 38.6039 129.337 37.081Z" fill="white"/><path d="M156.576 29.2664C155.656 28.7644 154.585 28.5133 153.364 28.5133C151.707 28.5133 150.402 29.1325 149.465 30.3375C148.528 31.5591 148.06 33.2159 148.06 35.3077V47.1393H140.43V22.3716H148.06V26.9737H148.16C149.382 23.61 151.54 21.9365 154.686 21.9365C155.489 21.9365 156.125 22.0369 156.576 22.221V29.2664Z" fill="white"/><path d="M166.732 38.7547C166.732 39.809 166.983 40.6123 167.485 41.1478C167.987 41.6833 168.656 41.951 169.493 41.951C169.911 41.951 170.329 41.9176 170.748 41.8339C171.166 41.767 171.584 41.6833 172.002 41.5996V46.9715C171.082 47.2058 170.112 47.4066 169.091 47.5573C168.07 47.7079 167 47.7915 165.895 47.7915C164.875 47.7915 163.955 47.6242 163.118 47.2895C162.298 46.9548 161.579 46.4695 160.993 45.8168C160.407 45.1809 159.956 44.4111 159.638 43.5074C159.32 42.6037 159.153 41.5829 159.153 40.4449V10.4727H166.749V38.7547H166.732Z" fill="white"/><path d="M173.843 46.5028V40.3109C175.114 41.0639 176.369 41.6329 177.607 42.0011C178.862 42.3692 180.033 42.5533 181.154 42.5533C182.51 42.5533 183.581 42.3692 184.35 42.0011C185.137 41.6329 185.521 41.0639 185.521 40.3109C185.521 39.8255 185.354 39.4239 184.986 39.0892C184.635 38.7712 184.183 38.4867 183.614 38.2525C183.062 38.0182 182.443 37.7839 181.79 37.5998C181.138 37.399 180.502 37.1814 179.883 36.9471C178.896 36.579 178.026 36.1773 177.289 35.7422C176.537 35.3071 175.917 34.8218 175.399 34.2528C174.897 33.6838 174.512 33.0312 174.244 32.2948C173.977 31.5585 173.843 30.6715 173.843 29.6674C173.843 28.2784 174.144 27.0903 174.746 26.0862C175.349 25.0821 176.152 24.2621 177.172 23.6261C178.176 22.9902 179.331 22.5216 180.636 22.2204C181.924 21.9192 183.279 21.7686 184.685 21.7686C185.789 21.7686 186.893 21.8522 188.014 22.0196C189.152 22.1869 190.256 22.438 191.344 22.7559V28.6633C190.374 28.0944 189.353 27.676 188.232 27.3915C187.128 27.107 186.04 26.9731 184.986 26.9731C184.484 26.9731 184.016 27.0066 183.581 27.107C183.129 27.1907 182.744 27.3246 182.393 27.4919C182.058 27.6592 181.79 27.8768 181.606 28.1446C181.405 28.4123 181.322 28.7135 181.322 29.0482C181.322 29.5001 181.456 29.885 181.757 30.203C182.058 30.5209 182.426 30.8054 182.895 31.0397C183.363 31.274 183.882 31.4915 184.451 31.6756C185.019 31.8597 185.588 32.0605 186.157 32.2446C187.178 32.5961 188.081 32.981 188.918 33.4161C189.738 33.8344 190.44 34.3197 191.026 34.8887C191.612 35.4577 192.063 36.1104 192.381 36.8635C192.699 37.6165 192.85 38.5202 192.85 39.5745C192.85 41.0472 192.532 42.3023 191.896 43.3399C191.26 44.3774 190.424 45.2309 189.353 45.8836C188.299 46.5362 187.077 47.0216 185.689 47.3061C184.317 47.6073 182.878 47.7579 181.389 47.7579C178.661 47.7579 176.152 47.3395 173.809 46.5028H173.843Z" fill="white"/><path d="M23.107 29.2329C23.107 18.2381 32.0081 9.33507 43.0008 9.33507C46.4809 9.33507 49.7603 10.2388 52.6046 11.8118C47.3509 4.81664 39.0019 0.314941 29.5988 0.314941C13.6871 0.314941 0.787109 13.2176 0.787109 29.1325C0.787109 45.0474 13.6871 57.95 29.5988 57.95C38.8513 57.95 47.0665 53.5822 52.3369 46.8213C49.5595 48.294 46.3805 49.1475 43.0008 49.1475C32.0081 49.1475 23.107 40.2445 23.107 29.2496V29.2329ZM21.3669 48.227H14.8751V17.3678H11.947L7.9984 10.5567H21.3669V48.2103V48.227Z" fill="white"/><path d="M43.0011 42.9223C50.5599 42.9223 56.6875 36.7934 56.6875 29.2331C56.6875 21.6728 50.5599 15.5439 43.0011 15.5439C35.4423 15.5439 29.3147 21.6728 29.3147 29.2331C29.3147 36.7934 35.4423 42.9223 43.0011 42.9223Z" fill="white"/></g><defs><clipPath id="nl"><rect width="203.081" height="58.2481"/></clipPath></defs></svg>
+  </div>
+  <div class="nav-links">
+    <a class="nav-link" href="#vida">Seguro de Vida</a>
+    <a class="nav-link" href="#medico">Gastos Médicos</a>
+    <a class="nav-link" href="#utilizar">Cómo usarlo</a>
+    <a class="nav-link" href="#contacto">Contacto</a>
+  </div>
+  <a class="nav-cta" href="#contacto">Contactar ejecutivo</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Beneficio para empleados · 2026</div>
+    <h1>Seguro de Vida<br>y Gastos Médicos <em>BMI</em></h1>
+    <p class="hero-sub">Tu beneficio de salud como parte de 10Pearls. Conocé en detalle <strong>qué cubre, cómo usarlo y a quién contactar</strong> cuando lo necesités.</p>
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+      <span style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);">Aseguradora</span>
+      <div style="width:1px;height:16px;background:rgba(255,255,255,0.15);"></div>
+      <div style="background:#fff;padding:8px 20px;display:inline-flex;align-items:center;">
+        <img src="images/bmi_logo.png" alt="BMI" style="height:28px;width:auto;display:block;">
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-val"><span>$</span>20,000</div>
+        <div class="hero-stat-label">Cobertura de vida</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val"><span>$</span>100,000</div>
+        <div class="hero-stat-label">Monto médico anual</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val"><span>$</span>125</div>
+        <div class="hero-stat-label">Deducible anual</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">80<span>%</span></div>
+        <div class="hero-stat-label">Cobertura en red</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEGURO DE VIDA -->
+<section id="vida">
+  <div class="section-inner">
+    <div class="section-tag">01 · Seguro de Vida</div>
+    <h2 class="section-h">Tu cobertura de <em>vida.</em></h2>
+    <p class="section-lead">La póliza de vida te protege ante fallecimiento, accidente o incapacidad. Es un beneficio exclusivo del empleado — no aplica para dependientes.</p>
+
+    <div class="vida-hero">
+      <div class="vida-hero-text">
+        <div class="vida-hero-title">Monto asegurado</div>
+        <div class="vida-hero-amount"><span>US$</span>20,000</div>
+        <div class="vida-hero-desc">Seguro colectivo de vida · BMI Costa Rica · Póliza corporativa 10Pearls</div>
+      </div>
+      <div class="vida-tag">Cubre solo al empleado</div>
+    </div>
+
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="benefit-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="benefit-card-title">Muerte por cualquier causa</div>
+        <div class="benefit-card-desc">Indemnización de US$20,000 a los beneficiarios designados, por fallecimiento de cualquier causa.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div class="benefit-card-title">Adelanto para gastos funerarios</div>
+        <div class="benefit-card-desc">Se adelantan hasta $2,000 del monto asegurado para cubrir gastos funerarios de manera inmediata.</div>
+        <span class="benefit-card-amount">Hasta $2,000</span>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="benefit-card-title">Muerte y Desmembramiento Accidental</div>
+        <div class="benefit-card-desc">Cobertura ante fallecimiento o pérdida de extremidades a causa de un accidente debidamente documentado.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="benefit-card-title">Incapacidad total y permanente</div>
+        <div class="benefit-card-desc">Adelanto del monto asegurado ante incapacidad total y permanente certificada por médico competente.</div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:24px;">
+      <strong>Beneficiarios:</strong> Se recomienda designar beneficiarios mayores de 18 años. Podés cambiarlos en cualquier momento. El proceso de indemnización por fallecimiento toma aproximadamente un mes; en caso de muerte accidental puede demorar más por análisis forense.
+    </div>
+  </div>
+</section>
+
+<!-- GASTOS MÉDICOS -->
+<section id="medico" class="alt">
+  <div class="section-inner">
+    <div class="section-tag">02 · Gastos Médicos</div>
+    <h2 class="section-h">Cobertura médica <em>local.</em></h2>
+    <p class="section-lead">Cobertura en Costa Rica hasta $100,000 anuales por persona. Incluye hospitalización, ambulatorio, urgencias, maternidad y más.</p>
+
+    <!-- Deducible / Coaseguro -->
+    <div class="part-grid">
+      <div class="part-card">
+        <div class="part-card-val">$125</div>
+        <div class="part-card-label">Deducible anual</div>
+        <div class="part-card-desc">Cuota fija que cubrís una vez al año antes de que el seguro empiece a pagar reintegros.</div>
+      </div>
+      <div class="part-card">
+        <div class="part-card-val">80% <span>/ 20%</span></div>
+        <div class="part-card-label">Coaseguro en red</div>
+        <div class="part-card-desc">Dentro de la red BMI: el seguro cubre el 80%, vos el 20%, después del deducible.</div>
+      </div>
+      <div class="part-card">
+        <div class="part-card-val">70% <span>/ 30%</span></div>
+        <div class="part-card-label">Coaseguro fuera de red</div>
+        <div class="part-card-desc">Con proveedores fuera de la red BMI: el seguro cubre el 70%, vos el 30%.</div>
+      </div>
+    </div>
+
+    <div class="highlight">Siempre que puedas, usá la red de proveedores BMI — obtenés mejores condiciones y evitás trámites de reembolso.</div>
+
+    <!-- Acordeones por tipo de cobertura -->
+    <div style="margin-top:32px;">
+
+      <div class="accordion">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div class="acc-title">Consultas Ambulatorias</div>
+            <div class="acc-subtitle">Médico general · especialista · laboratorios · medicamentos</div>
+          </div>
+          <div class="acc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </div>
+        <div class="acc-body">
+          <ul>
+            <li><div><strong>Consulta médica general o especialista — hasta $80.</strong> Dentro de la red con pre-autorización: no aplica deducible, coaseguro ni copago. Fuera de red o sin pre-autorización: aplica deducible.</div></li>
+            <li><div><strong>Imágenes y laboratorios ambulatorios.</strong> Cobertura al coaseguro correspondiente después de cubierto el deducible anual.</div></li>
+            <li><div><strong>Medicamentos ambulatorios.</strong> Cobertura al coaseguro después del deducible. Requiere receta médica.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><path d="M13 8h4"/><path d="M13 12h4"/><path d="M13 16h4"/></svg>
+          </div>
+          <div>
+            <div class="acc-title">Hospitalización</div>
+            <div class="acc-subtitle">Cuarto · UCI · imágenes · consultas intrahospitalarias</div>
+          </div>
+          <div class="acc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </div>
+        <div class="acc-body">
+          <ul>
+            <li><div><strong>Cuarto y alimento diario — máx. $400/día.</strong> Cobertura al 80%-20% después de cubierto el deducible.</div></li>
+            <li><div><strong>Cuidados Intensivos (UCI) — máx. $800/día.</strong> Cobertura al 80%-20% después de cubierto el deducible.</div></li>
+            <li><div><strong>Estudios de imágenes intrahospitalarias.</strong> Cobertura al coaseguro después del deducible.</div></li>
+            <li><div><strong>Consultas intrahospitalarias.</strong> Cobertura al coaseguro después del deducible.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <div>
+            <div class="acc-title">Atención de Urgencias</div>
+            <div class="acc-subtitle">Accidentes al 100% · atención primaria al 90%</div>
+          </div>
+          <div class="acc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </div>
+        <div class="acc-body">
+          <ul>
+            <li><div><strong>Urgencia por accidente — 100%</strong> de los cargos elegibles las primeras 24 horas en Sala de Urgencias. Máx. $100 médico general / $165 médico especialista.</div></li>
+            <li><div><strong>Atención médica primaria — 90%.</strong> Solo en Red de Proveedores: Hospital Metropolitano, Hospital La Católica, Blue Medical, Centro Médico San Joaquín, Hospital Universal Cartago, Centro Médico La Asunción, Jackson Memorial, Clínica D'Blanco, Centro Médico GEM, Hospital Cooperativo, Torre Médica Santa Inés.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M6 22v-2a6 6 0 0 1 12 0v2"/></svg>
+          </div>
+          <div>
+            <div class="acc-title">Maternidad</div>
+            <div class="acc-subtitle">Parto normal · cesárea · complicaciones · periodo de espera 12 meses</div>
+          </div>
+          <div class="acc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </div>
+        <div class="acc-body">
+          <div class="warning">Aplica periodo de espera de 12 meses desde el inicio de la póliza.</div>
+          <ul>
+            <li><div><strong>Parto normal — hasta $2,000.</strong> Al 80%-20% después del deducible.</div></li>
+            <li><div><strong>Cesárea — hasta $3,000.</strong> Al 80%-20% después del deducible.</div></li>
+            <li><div><strong>Complicaciones del embarazo — hasta $20,000.</strong> Al 80%-20% después del deducible. Cubre complicaciones médicas derivadas del embarazo.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div>
+            <div class="acc-title">Beneficios Especiales</div>
+            <div class="acc-subtitle">Psicología · alergias · óptico · molares · ambulancia</div>
+          </div>
+          <div class="acc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </div>
+        <div class="acc-body">
+          <div class="note">Algunos beneficios requieren previa autorización y se pagan vía reembolso.</div>
+          <ul>
+            <li><div><strong>Psiquiatría / Psicología</strong> — hasta 20 consultas al año a $60 el 50%, después del deducible. Debe ser referido por un médico.</div></li>
+            <li><div><strong>Pruebas de Alergia</strong> — hasta $300 al coaseguro después del deducible. Requiere previa autorización.</div></li>
+            <li><div><strong>Salpingectomía</strong> — $500 al coaseguro. <strong>Vasectomía</strong> — $250 al coaseguro, ambas después del deducible.</div></li>
+            <li><div><strong>Extracción de terceras molares impactadas</strong> — $125 por unidad al coaseguro después del deducible.</div></li>
+            <li><div><strong>Ambulancia terrestre y aérea</strong> — bajo prescripción médica.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div>
+            <div class="acc-title">Coberturas Preventivas</div>
+            <div class="acc-subtitle">Chequeo anual · ginecológico · urológico · óptico</div>
+          </div>
+          <div class="acc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </div>
+        <div class="acc-body">
+          <ul>
+            <li><div><strong>Chequeo Médico Anual — $150.</strong> Aplica periodo de espera de 12 meses. Requiere previa autorización.</div></li>
+            <li><div><strong>Control Ginecológico</strong> — consulta y Papanicolaou anual. Mamografía para mujeres +40 años. Al coaseguro después del deducible.</div></li>
+            <li><div><strong>Control Urológico</strong> — consulta y antígeno prostático para hombres +40 años. Al coaseguro después del deducible.</div></li>
+            <li><div><strong>Beneficio Óptico — $100.</strong> Aplica periodo de espera de 12 meses. Cubre consulta, examen y lentes referidos por oftalmólogo u optometrista.</div></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO USARLO -->
+<section id="utilizar">
+  <div class="section-inner">
+    <div class="section-tag">03 · Cómo usarlo</div>
+    <h2 class="section-h">Red médica, reembolsos<br>y <em>pre-autorizaciones.</em></h2>
+
+    <!-- Red médica: 3 pasos horizontales -->
+    <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:20px;">Cómo buscar un proveedor en red</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:56px;">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="step-num-wrap" style="flex-shrink:0;">1</div>
+          <div class="step-title" style="margin:0;">Ingresá al sitio de BMI</div>
+        </div>
+        <div class="step-desc">Visitá la red de proveedores en línea.</div>
+        <a class="step-link" href="https://www.bmicos.com/costarica/red-de-hospitales/redcosta-rica/" target="_blank">www.bmicos.com/costarica/red-de-hospitales/redcosta-rica/</a>
+        <img src="images/30.png" alt="Red médica BMI Costa Rica" style="display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:4px;">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="step-num-wrap" style="flex-shrink:0;">2</div>
+          <div class="step-title" style="margin:0;">Completá provincia, ciudad y especialidad</div>
+        </div>
+        <div class="step-desc">El buscador filtra médicos disponibles según tu ubicación.</div>
+        <img src="images/31.png" alt="Filtros de búsqueda BMI" style="display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:4px;">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="step-num-wrap" style="flex-shrink:0;">3</div>
+          <div class="step-title" style="margin:0;">Seleccioná el médico y agendá</div>
+        </div>
+        <div class="step-desc">Aparece la lista con nombre, especialidad y teléfono. Indicá que sos asegurado de BMI.</div>
+        <img src="images/32.png" alt="Resultados red médica BMI" style="display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:4px;">
+      </div>
+    </div>
+
+    <!-- Reembolso + Pre-autorización en dos columnas iguales -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:64px;">
+      <div style="background:var(--bg-soft);border:1px solid var(--border);padding:28px;">
+        <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">Reembolso de gastos</p>
+        <p style="font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:14px;">Aplica para gastos fuera de red, medicamentos y beneficios especiales. Enviar a través de GEV o al ejecutivo de cuenta.</p>
+        <div class="note" style="margin:0 0 14px;">
+          <strong>Documentos obligatorios:</strong><br>
+          · Factura(s) electrónica(s) desglosada(s)<br>
+          · Receta(s) / Referencia(s) médica(s)<br>
+          · Resultados de exámenes o análisis
+        </div>
+        <img src="images/33.png" alt="Formulario de reembolso BMI" style="display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:4px;">
+      </div>
+      <div style="background:var(--bg-soft);border:1px solid var(--border);padding:28px;">
+        <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">Pre-autorización</p>
+        <p style="font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:12px;">Requerida para gastos ≥ $300, alergias, cirugías y maternidad.</p>
+        <div class="warning" style="margin:0 0 12px;">Casos no pre-autorizados pueden ser penalizados por la aseguradora.</div>
+        <p style="font-size:13px;color:var(--gray);line-height:1.65;margin-bottom:14px;">Enviá el formulario a <strong>jrodriguez@garrettbrokers.com</strong> o a través de la plataforma GEV antes del procedimiento.</p>
+        <img src="images/34.png" alt="Formulario de pre-autorización BMI" style="display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:4px;">
+      </div>
+    </div>
+
+    <!-- GEV -->
+    <div style="background:var(--bg-soft);border:1px solid var(--border);padding:32px;margin-bottom:48px;">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+        <div style="width:44px;height:44px;background:var(--nav);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-light);margin-bottom:2px;">Plataforma digital</div>
+          <div style="font-size:18px;font-weight:900;color:#1a1a1a;">GEV — Garrett Ejecutivo Virtual</div>
+        </div>
+        <a href="https://gev.garrettbrokers.com" target="_blank" style="margin-left:auto;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#111;background:var(--green);padding:10px 20px;text-decoration:none;white-space:nowrap;">Ir a GEV →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:20px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray);">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:var(--green);flex-shrink:0;margin-top:1px;"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Crear y rastrear reclamos en línea
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray);">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:var(--green);flex-shrink:0;margin-top:1px;"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Adjuntar facturas, recetas y resultados
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray);">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:var(--green);flex-shrink:0;margin-top:1px;"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Enviar formularios de pre-autorización
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray);">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:var(--green);flex-shrink:0;margin-top:1px;"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Consultar con tu ejecutivo de cuenta
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <img src="images/36.jpg" alt="GEV dashboard" style="width:100%;border-radius:4px;border:1px solid var(--border);">
+        <img src="images/37.jpg" alt="GEV reclamo" style="width:100%;border-radius:4px;border:1px solid var(--border);">
+      </div>
+    </div>
+
+    <!-- Exclusiones -->
+    <p style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gray-light);margin-bottom:14px;display:flex;align-items:center;gap:10px;"><span style="display:block;width:20px;height:2px;background:var(--green);"></span>Exclusiones principales</p>
+    <div class="excl-grid">
+      <div class="excl-card">
+        <div class="excl-num">01</div>
+        <div class="excl-title">Medicina natural o experimental</div>
+        <div class="excl-desc">Tratamientos alternativos, homeopáticos o no aprobados por la medicina convencional.</div>
+      </div>
+      <div class="excl-card">
+        <div class="excl-num">02</div>
+        <div class="excl-title">Control de natalidad</div>
+        <div class="excl-desc">Cualquier método anticonceptivo o tratamiento relacionado.</div>
+      </div>
+      <div class="excl-card">
+        <div class="excl-num">03</div>
+        <div class="excl-title">Pre-existencias (12 meses)</div>
+        <div class="excl-desc">Condiciones diagnosticadas antes de la póliza no se cubren durante el primer año.</div>
+      </div>
+      <div class="excl-card">
+        <div class="excl-num">04</div>
+        <div class="excl-title">Cirugías estéticas</div>
+        <div class="excl-desc">Procedimientos cosméticos sin justificación médica demostrable.</div>
+      </div>
+      <div class="excl-card">
+        <div class="excl-num">05</div>
+        <div class="excl-title">Tratamientos no contemplados</div>
+        <div class="excl-desc">Cualquier tratamiento que no esté incluido explícitamente en las coberturas de la póliza.</div>
+      </div>
+      <div class="excl-card" style="background:var(--nav);border-color:var(--nav);">
+        <div class="excl-num" style="background:var(--green);color:#111;">06</div>
+        <div class="excl-title" style="color:#fff;">¿Más dudas?</div>
+        <div class="excl-desc" style="color:rgba(255,255,255,0.6);">Para la lista completa de exclusiones, contactá a tu ejecutivo de cuenta en Garrett Unicen.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="alt">
+  <div class="section-inner">
+    <div class="section-tag">04 · Contacto</div>
+    <h2 class="section-h">¿Necesitás <em>ayuda?</em></h2>
+    <p class="section-lead">Para cualquier consulta sobre tu seguro tenés dos canales: tu ejecutivo de cuenta en Garrett Unicen y la línea directa de BMI Costa Rica disponible 24/7.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-card-role">Ejecutivo de cuenta · Garrett Unicen</div>
+        <div class="contact-card-name">Jose Rodríguez G.</div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.02-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+50664897525">6489-7525</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:jrodriguez@garrettbrokers.com">jrodriguez@garrettbrokers.com</a>
+        </div>
+        <div class="contact-schedule">Lun–Jue: 8:00 am – 5:00 pm<br>Viernes: 8:00 am – 4:00 pm</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-role">Asistencia directa · BMI Costa Rica</div>
+        <div class="contact-card-name">Servicio 24/7</div>
+        <div class="contact-24">Disponible toda la semana</div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.02-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+50640015256">+(506) 4001-5256</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:asistencia@bmicos.com">asistencia@bmicos.com</a>
+        </div>
+        <div class="contact-schedule">Disponible los 7 días para emergencias médicas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <svg height="20" viewBox="0 0 204 59" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#fl)"><path d="M71.0275 35.2071V47.1559H63.2139V12.4644H75.4613C84.1952 12.4644 88.5789 16.146 88.5789 23.5261C88.5789 27.007 87.324 29.8352 84.8143 31.9773C82.3045 34.1194 78.9582 35.2071 74.7586 35.2071H71.0275ZM71.0275 18.4555V29.2662H74.1061C78.2722 29.2662 80.3469 27.4421 80.3469 23.7939C80.3469 20.1457 78.2722 18.4387 74.1061 18.4387H71.0275V18.4555Z" fill="rgba(255,255,255,0.35)"/><path d="M112.289 36.9474H96.126C96.377 40.5454 98.6525 42.336 102.919 42.336C105.646 42.336 108.039 41.6833 110.097 40.4115V45.934C107.805 47.1557 104.843 47.7749 101.179 47.7749C97.1801 47.7749 94.0848 46.6703 91.8595 44.4446C89.6509 42.2356 88.5466 39.1396 88.5466 35.1735C88.5466 31.2073 89.7346 27.7933 92.1272 25.4003C94.5198 22.9904 97.4478 21.8022 100.928 21.8022C104.408 21.8022 107.336 22.8733 109.31 25.0154C111.285 27.1574 112.272 30.086 112.272 33.751V36.9641L112.289 36.9474ZM105.211 32.2448C105.211 28.697 103.772 26.9231 100.894 26.9231C99.6731 26.9231 98.6023 27.4252 97.7155 28.446C96.812 29.4668 96.2766 30.7387 96.0758 32.2448H105.194H105.211Z" fill="rgba(255,255,255,0.35)"/><path d="M23.107 29.2329C23.107 18.2381 32.0081 9.33507 43.0008 9.33507C46.4809 9.33507 49.7603 10.2388 52.6046 11.8118C47.3509 4.81664 39.0019 0.314941 29.5988 0.314941C13.6871 0.314941 0.787109 13.2176 0.787109 29.1325C0.787109 45.0474 13.6871 57.95 29.5988 57.95C38.8513 57.95 47.0665 53.5822 52.3369 46.8213C49.5595 48.294 46.3805 49.1475 43.0008 49.1475C32.0081 49.1475 23.107 40.2445 23.107 29.2496V29.2329ZM21.3669 48.227H14.8751V17.3678H11.947L7.9984 10.5567H21.3669V48.2103V48.227Z" fill="rgba(255,255,255,0.35)"/><path d="M43.0011 42.9223C50.5599 42.9223 56.6875 36.7934 56.6875 29.2331C56.6875 21.6728 50.5599 15.5439 43.0011 15.5439C35.4423 15.5439 29.3147 21.6728 29.3147 29.2331C29.3147 36.7934 35.4423 42.9223 43.0011 42.9223Z" fill="rgba(255,255,255,0.35)"/></g><defs><clipPath id="fl"><rect width="203.081" height="58.2481"/></clipPath></defs></svg>
+    <div class="footer-divider"></div>
+    <span class="footer-text">People &amp; Culture · Beneficios 2026</span>
+  </div>
+  <span class="footer-copy">Seguro colectivo BMI · Garrett Unicen Corredora de Seguros</span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    smoothTouch: false,
+  });
+  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+
+  // Anchor links → Lenis scrollTo
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -60 });
+    });
+  });
+</script>
+<script>
+function toggleAcc(header) {
+  const isOpen = header.classList.contains('open');
+  document.querySelectorAll('.acc-header').forEach(h => {
+    h.classList.remove('open');
+    h.nextElementSibling.classList.remove('open');
+  });
+  if (!isOpen) {
+    header.classList.add('open');
+    header.nextElementSibling.classList.add('open');
+  }
+}
+
+</script>
+</body>
+</html>
