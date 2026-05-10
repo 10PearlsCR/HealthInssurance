@@ -44,6 +44,30 @@ nav{
 }
 .nav-cta:hover{opacity:.85;}
 
+/* ── HAMBURGER + MOBILE MENU ── */
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;justify-content:center;gap:5px;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:1px;transition:transform .25s,opacity .25s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{
+  display:none;position:fixed;top:60px;left:0;right:0;bottom:0;
+  background:var(--nav);z-index:99;
+  flex-direction:column;padding:40px 28px;overflow-y:auto;
+}
+.mobile-menu.open{display:flex;}
+.mobile-menu-link{
+  font-size:32px;font-weight:900;color:rgba(255,255,255,0.75);
+  text-decoration:none;padding:16px 0;letter-spacing:-0.5px;
+  border-bottom:1px solid rgba(255,255,255,0.07);transition:color .2s;
+}
+.mobile-menu-link:hover{color:#fff;}
+.mobile-menu-cta{
+  margin-top:32px;align-self:flex-start;
+  font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:#111;background:var(--green);padding:14px 28px;text-decoration:none;
+}
+
 /* ── HERO ── */
 .hero{
   background:var(--nav);
@@ -61,7 +85,9 @@ nav{
   background:radial-gradient(ellipse,rgba(212,255,39,0.10) 0%,transparent 65%);
   pointer-events:none;
 }
-.hero-inner{max-width:var(--max);margin:0 auto;position:relative;z-index:1;}
+.hero-inner{max-width:var(--max);margin:0 auto;position:relative;z-index:1;display:flex;align-items:center;gap:60px;}
+.hero-content{flex:1;min-width:0;}
+.hero-illust{width:380px;flex-shrink:0;opacity:.9;}
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:10px;
   font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
@@ -168,16 +194,35 @@ section.alt{background:var(--bg-soft);}
 .cov-tag.green{background:var(--green);color:#111;}
 .cov-tag.gray{background:var(--bg-mid);color:var(--gray);}
 
-/* ── PARTICIPATION BOX ── */
-.part-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;}
-.part-card{
-  padding:24px;text-align:center;
-  border:1px solid var(--border);background:var(--bg-soft);
+/* ── STATS BANNER ── */
+.stats-banner{
+  display:flex;background:var(--nav);
+  margin-bottom:16px;overflow:hidden;
 }
-.part-card-val{font-size:28px;font-weight:900;letter-spacing:-1px;color:#1a1a1a;margin-bottom:6px;}
-.part-card-val span{color:#1a1a1a;}
-.part-card-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray-light);}
-.part-card-desc{font-size:13px;font-weight:400;color:var(--gray);margin-top:8px;line-height:1.5;}
+.stats-banner-item{
+  flex:1;padding:32px 28px;
+  display:flex;flex-direction:column;gap:6px;
+  border-right:1px solid rgba(255,255,255,0.08);
+}
+.stats-banner-item:last-child{border-right:none;}
+.stats-val{
+  font-size:48px;font-weight:900;letter-spacing:-2px;
+  line-height:1;color:#fff;
+}
+.stats-val em{font-style:normal;color:var(--green);}
+.stats-val .stats-dim{font-size:28px;color:rgba(255,255,255,0.35);letter-spacing:-1px;}
+.stats-label{
+  font-size:10px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(255,255,255,0.4);
+  margin-top:4px;
+}
+.stats-desc{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.55;margin-top:2px;}
+@media(max-width:900px){
+  .stats-banner{flex-direction:column;}
+  .stats-banner-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);padding:24px 20px;}
+  .stats-banner-item:last-child{border-bottom:none;}
+  .stats-val{font-size:38px;}
+}
 
 /* ── HIGHLIGHT / NOTE ── */
 .highlight{
@@ -297,6 +342,15 @@ section.alt{background:var(--bg-soft);}
   padding:4px 10px;
 }
 
+/* ── GEV BLOCK ── */
+.gev-header{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
+.gev-cta{
+  margin-left:auto;flex-shrink:0;
+  font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:#111;background:var(--green);padding:10px 20px;
+  text-decoration:none;white-space:nowrap;
+}
+
 /* ── FOOTER ── */
 footer{
   background:var(--nav);padding:32px 60px;
@@ -318,15 +372,35 @@ footer{
   /* nav */
   nav{padding:0 20px;}
   .nav-links{display:none;}
-  .nav-cta{font-size:10px;padding:7px 14px;}
+  .nav-cta{display:none;}
+  .hamburger{display:flex;}
 
   /* hero */
   .hero{padding:40px 20px 48px;}
+  .hero-inner{flex-direction:column;gap:0;}
+  .hero-illust{display:none;}
   .hero h1{font-size:30px;letter-spacing:-1px;}
   .hero h1 em{display:inline-block;}
   .hero-sub{font-size:15px;}
-  .hero-stats{flex-direction:column;gap:20px;}
-  .hero-stat{border:none;padding:0;margin:0;}
+
+  /* hero stats → 2×2 grid */
+  .hero-stats{
+    display:grid !important;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    margin-top:36px;
+    padding-top:28px;
+  }
+  .hero-stat{
+    flex:none;
+    border-right:none !important;
+    border-bottom:1px solid rgba(255,255,255,0.09) !important;
+    margin:0 !important;
+    padding:16px 12px !important;
+  }
+  .hero-stat:nth-child(odd){border-right:1px solid rgba(255,255,255,0.09) !important;}
+  .hero-stat:nth-child(3),.hero-stat:nth-child(4){border-bottom:none !important;}
+  .hero-stat-val{font-size:24px;}
 
   /* sections */
   section{padding:48px 20px;}
@@ -348,6 +422,12 @@ footer{
   /* section headings */
   .section-h{font-size:28px;}
 
+  /* stats banner */
+  .stats-banner{flex-direction:column;}
+  .stats-banner-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);padding:24px 20px;}
+  .stats-banner-item:last-child{border-bottom:none;}
+  .stats-val{font-size:38px;}
+
   /* accordions */
   .acc-header{padding:14px 16px;}
   .acc-body{padding:16px;}
@@ -360,8 +440,15 @@ footer{
   .footer-left{flex-direction:column;gap:10px;}
   .footer-divider{display:none;}
 
+  /* GEV header */
+  .gev-header{flex-wrap:wrap;gap:12px;}
+  .gev-cta{margin-left:0;width:100%;text-align:center;padding:12px;}
+
   /* contact items */
   .contact-item a,.contact-item span{font-size:13px;word-break:break-all;}
+
+  /* ocultar capturas e imágenes de formularios */
+  .hide-mobile{display:none !important;}
 }
 </style>
 </head>
@@ -379,41 +466,120 @@ footer{
     <a class="nav-link" href="#contacto">Contacto</a>
   </div>
   <a class="nav-cta" href="#contacto">Contactar ejecutivo</a>
+  <button class="hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a class="mobile-menu-link" href="#vida"    onclick="closeMobileMenu()">Seguro de Vida</a>
+  <a class="mobile-menu-link" href="#medico"  onclick="closeMobileMenu()">Gastos Médicos</a>
+  <a class="mobile-menu-link" href="#utilizar" onclick="closeMobileMenu()">Cómo usarlo</a>
+  <a class="mobile-menu-link" href="#contacto" onclick="closeMobileMenu()">Contacto</a>
+  <a class="mobile-menu-cta" href="#contacto"  onclick="closeMobileMenu()">Contactar ejecutivo</a>
+</div>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-dots"></div>
   <div class="hero-glow"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">Beneficio para empleados · 2026</div>
-    <h1>Seguro de Vida<br>y Gastos Médicos <em>BMI</em></h1>
-    <p class="hero-sub">Tu beneficio de salud como parte de 10Pearls. Conocé en detalle <strong>qué cubre, cómo usarlo y a quién contactar</strong> cuando lo necesités.</p>
-    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
-      <span style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);">Aseguradora</span>
-      <div style="width:1px;height:16px;background:rgba(255,255,255,0.15);"></div>
-      <div style="background:#fff;padding:8px 20px;display:inline-flex;align-items:center;">
-        <img src="images/bmi_logo.png" alt="BMI" style="height:28px;width:auto;display:block;">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Beneficio para empleados</div>
+      <h1>Seguro de Vida<br>y Gastos Médicos <em>BMI</em></h1>
+      <p class="hero-sub">Tu beneficio de salud como parte de 10Pearls. Conocé en detalle <strong>qué cubre, cómo usarlo y a quién contactar</strong> cuando lo necesités.</p>
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+        <span style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);">Aseguradora</span>
+        <div style="width:1px;height:16px;background:rgba(255,255,255,0.15);"></div>
+        <div style="background:#fff;padding:8px 20px;display:inline-flex;align-items:center;">
+          <img src="images/bmi_logo.png" alt="BMI" style="height:44px;width:auto;display:block;">
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-val"><span>$</span>20,000</div>
+          <div class="hero-stat-label">Cobertura de vida</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-val"><span>$</span>100,000</div>
+          <div class="hero-stat-label">Monto médico anual</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-val"><span>$</span>125</div>
+          <div class="hero-stat-label">Deducible anual</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-val">80<span>%</span></div>
+          <div class="hero-stat-label">Cobertura en red</div>
+        </div>
       </div>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-val"><span>$</span>20,000</div>
-        <div class="hero-stat-label">Cobertura de vida</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-val"><span>$</span>100,000</div>
-        <div class="hero-stat-label">Monto médico anual</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-val"><span>$</span>125</div>
-        <div class="hero-stat-label">Deducible anual</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-val">80<span>%</span></div>
-        <div class="hero-stat-label">Cobertura en red</div>
-      </div>
+
+    <!-- Ilustración salud -->
+    <div class="hero-illust">
+      <svg viewBox="0 0 440 520" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+
+        <!-- Aura suave -->
+        <circle cx="220" cy="260" r="215" fill="rgba(212,255,39,0.02)"/>
+        <circle cx="220" cy="260" r="170" fill="rgba(212,255,39,0.03)"/>
+
+        <!-- Anillos decorativos -->
+        <circle cx="220" cy="260" r="200" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4 14"/>
+        <circle cx="220" cy="260" r="175" stroke="rgba(212,255,39,0.07)" stroke-width="1"/>
+
+        <!-- Escudo principal -->
+        <path d="M220 82 L330 122 L330 290 C330 372 275 418 220 440 C165 418 110 372 110 290 L110 122 Z"
+              fill="rgba(212,255,39,0.05)"
+              stroke="rgba(212,255,39,0.4)"
+              stroke-width="1.5"
+              stroke-linejoin="round"/>
+
+        <!-- Eco interior del escudo -->
+        <path d="M220 104 L314 140 L314 286 C314 360 268 402 220 422 C172 402 126 360 126 286 L126 140 Z"
+              fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+
+        <!-- Corazón -->
+        <path d="M220 200 C220 200 200 183 192 203 C184 223 220 248 220 248 C220 248 256 223 248 203 C240 183 220 200 220 200Z"
+              fill="rgba(212,255,39,0.14)"
+              stroke="#D4FF27"
+              stroke-width="1.8"
+              stroke-linejoin="round"/>
+
+        <!-- Línea ECG -->
+        <polyline points="130,285 152,285 165,258 179,314 191,272 204,272 213,285 240,285 250,265 260,285 310,285"
+                  stroke="#D4FF27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+
+        <!-- Cruz médica -->
+        <line x1="296" y1="158" x2="296" y2="180" stroke="rgba(212,255,39,0.55)" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="285" y1="169" x2="307" y2="169" stroke="rgba(212,255,39,0.55)" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- Dot acento superior derecha -->
+        <circle cx="355" cy="105" r="5.5" fill="#D4FF27" opacity="0.6"/>
+        <circle cx="355" cy="105" r="12" fill="rgba(212,255,39,0.1)"/>
+
+        <!-- Dot acento inferior izquierda -->
+        <circle cx="70" cy="345" r="4" fill="rgba(212,255,39,0.4)"/>
+        <circle cx="70" cy="345" r="9" fill="rgba(212,255,39,0.07)"/>
+
+        <!-- Puntos flotantes pequeños -->
+        <circle cx="375" cy="275" r="2.5" fill="rgba(255,255,255,0.15)"/>
+        <circle cx="62" cy="185" r="2" fill="rgba(255,255,255,0.12)"/>
+        <circle cx="385" cy="210" r="1.8" fill="rgba(212,255,39,0.35)"/>
+        <circle cx="55" cy="300" r="1.5" fill="rgba(212,255,39,0.25)"/>
+
+        <!-- Anillo satélite -->
+        <circle cx="378" cy="320" r="20" fill="none" stroke="rgba(212,255,39,0.1)" stroke-width="1"/>
+
+        <!-- Fila de puntos inferior -->
+        <circle cx="188" cy="468" r="1.5" fill="rgba(255,255,255,0.08)"/>
+        <circle cx="208" cy="468" r="1.5" fill="rgba(255,255,255,0.08)"/>
+        <circle cx="228" cy="468" r="1.5" fill="rgba(255,255,255,0.08)"/>
+        <circle cx="248" cy="468" r="1.5" fill="rgba(255,255,255,0.08)"/>
+
+      </svg>
     </div>
+
   </div>
 </div>
 
@@ -479,21 +645,21 @@ footer{
     <p class="section-lead">Cobertura en Costa Rica hasta $100,000 anuales por persona. Incluye hospitalización, ambulatorio, urgencias, maternidad y más.</p>
 
     <!-- Deducible / Coaseguro -->
-    <div class="part-grid">
-      <div class="part-card">
-        <div class="part-card-val">$125</div>
-        <div class="part-card-label">Deducible anual</div>
-        <div class="part-card-desc">Cuota fija que cubrís una vez al año antes de que el seguro empiece a pagar reintegros.</div>
+    <div class="stats-banner">
+      <div class="stats-banner-item">
+        <div class="stats-val"><em>$</em>125</div>
+        <div class="stats-label">Deducible anual</div>
+        <div class="stats-desc">Cuota fija que cubrís una sola vez al año antes de que el seguro empiece a pagar.</div>
       </div>
-      <div class="part-card">
-        <div class="part-card-val">80% <span>/ 20%</span></div>
-        <div class="part-card-label">Coaseguro en red</div>
-        <div class="part-card-desc">Dentro de la red BMI: el seguro cubre el 80%, vos el 20%, después del deducible.</div>
+      <div class="stats-banner-item">
+        <div class="stats-val"><em>80%</em> <span class="stats-dim">/ 20%</span></div>
+        <div class="stats-label">Coaseguro dentro de la red</div>
+        <div class="stats-desc">El seguro cubre el 80%, vos el 20% — siempre dentro de la red BMI.</div>
       </div>
-      <div class="part-card">
-        <div class="part-card-val">70% <span>/ 30%</span></div>
-        <div class="part-card-label">Coaseguro fuera de red</div>
-        <div class="part-card-desc">Con proveedores fuera de la red BMI: el seguro cubre el 70%, vos el 30%.</div>
+      <div class="stats-banner-item">
+        <div class="stats-val"><em>70%</em> <span class="stats-dim">/ 30%</span></div>
+        <div class="stats-label">Coaseguro fuera de la red</div>
+        <div class="stats-desc">Con proveedores fuera de la red: el seguro cubre el 70%, vos el 30%.</div>
       </div>
     </div>
 
@@ -637,99 +803,181 @@ footer{
     <div class="section-tag">03 · Cómo usarlo</div>
     <h2 class="section-h">Red médica, reembolsos<br>y <em>pre-autorizaciones.</em></h2>
 
-    <!-- Red médica: 3 pasos horizontales -->
-    <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:20px;">Cómo buscar un proveedor en red</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:56px;">
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div class="step-num-wrap" style="flex-shrink:0;">1</div>
-          <div class="step-title" style="margin:0;">Ingresá al sitio de BMI</div>
+    <!-- Red médica: 3 pasos -->
+    <p style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gray-light);margin-bottom:20px;display:flex;align-items:center;gap:10px;"><span style="display:block;width:20px;height:2px;background:var(--green);"></span>Cómo buscar un proveedor en red</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:56px;">
+
+      <div style="display:flex;flex-direction:column;">
+        <div style="background:var(--bg-mid);border:1px solid var(--border);border-bottom:none;padding:20px 24px;display:flex;align-items:flex-start;justify-content:space-between;">
+          <span style="font-size:42px;font-weight:900;color:#555;line-height:1;letter-spacing:-2px;">01</span>
+          <div style="width:34px;height:34px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
         </div>
-        <div class="step-desc">Visitá la red de proveedores en línea.</div>
-        <a class="step-link" href="https://www.bmicos.com/costarica/red-de-hospitales/redcosta-rica/" target="_blank">www.bmicos.com/costarica/red-de-hospitales/redcosta-rica/</a>
-        <img src="images/30.png" alt="Red médica BMI Costa Rica" style="display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:4px;">
-      </div>
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div class="step-num-wrap" style="flex-shrink:0;">2</div>
-          <div class="step-title" style="margin:0;">Completá provincia, ciudad y especialidad</div>
+        <div style="background:var(--bg-soft);border:1px solid var(--border);border-top:none;padding:20px 24px;flex:1;display:flex;flex-direction:column;gap:10px;">
+          <div class="step-title">Ingresá al sitio de BMI</div>
+          <div class="step-desc">Buscá médicos, clínicas y hospitales dentro de la red de proveedores de BMI Costa Rica.</div>
+          <a href="https://www.bmicos.com/costarica/red-de-hospitales/" target="_blank" style="display:inline-flex;align-items:center;gap:7px;margin-top:4px;padding:9px 14px;background:var(--green);color:#111;font-size:12px;font-weight:700;letter-spacing:.5px;text-decoration:none;align-self:flex-start;">
+            Buscar proveedor en red
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
-        <div class="step-desc">El buscador filtra médicos disponibles según tu ubicación.</div>
-        <img src="images/31.png" alt="Filtros de búsqueda BMI" style="display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:4px;">
       </div>
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div class="step-num-wrap" style="flex-shrink:0;">3</div>
-          <div class="step-title" style="margin:0;">Seleccioná el médico y agendá</div>
+
+      <div style="display:flex;flex-direction:column;">
+        <div style="background:var(--bg-mid);border:1px solid var(--border);border-left:none;border-bottom:none;padding:20px 24px;display:flex;align-items:flex-start;justify-content:space-between;">
+          <span style="font-size:42px;font-weight:900;color:#555;line-height:1;letter-spacing:-2px;">02</span>
+          <div style="width:34px;height:34px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </div>
         </div>
-        <div class="step-desc">Aparece la lista con nombre, especialidad y teléfono. Indicá que sos asegurado de BMI.</div>
-        <img src="images/32.png" alt="Resultados red médica BMI" style="display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:4px;">
+        <div style="background:var(--bg-soft);border:1px solid var(--border);border-top:none;padding:20px 24px;flex:1;display:flex;flex-direction:column;gap:10px;border-left:none;">
+          <div class="step-title">Filtrá por ubicación y especialidad</div>
+          <div class="step-desc">Seleccioná provincia, ciudad y especialidad médica para ver los proveedores disponibles cerca tuyo.</div>
+        </div>
       </div>
+
+      <div style="display:flex;flex-direction:column;">
+        <div style="background:var(--bg-mid);border:1px solid var(--border);border-left:none;border-bottom:none;padding:20px 24px;display:flex;align-items:flex-start;justify-content:space-between;">
+          <span style="font-size:42px;font-weight:900;color:#555;line-height:1;letter-spacing:-2px;">03</span>
+          <div style="width:34px;height:34px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.02-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+        </div>
+        <div style="background:var(--bg-soft);border:1px solid var(--border);border-top:none;padding:20px 24px;flex:1;display:flex;flex-direction:column;gap:10px;border-left:none;">
+          <div class="step-title">Contactá al médico y agendá</div>
+          <div class="step-desc">El resultado incluye nombre, especialidad y teléfono. Al llamar, indicá que sos asegurado de BMI.</div>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Reembolso + Pre-autorización en dos columnas iguales -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:64px;">
-      <div style="background:var(--bg-soft);border:1px solid var(--border);padding:28px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;">
-          <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin:0;">Reembolso de gastos</p>
-          <a href="#" style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:var(--nav);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;white-space:nowrap;flex-shrink:0;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <!-- Reembolso + Pre-autorización -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:64px;">
+
+      <!-- Reembolso -->
+      <div style="display:flex;flex-direction:column;">
+        <div style="background:var(--bg-mid);border:1px solid var(--border);border-bottom:none;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+          <div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light);margin-bottom:4px;">Trámite</div>
+            <div style="font-size:16px;font-weight:900;color:#1a1a1a;">Reembolso de gastos</div>
+          </div>
+          <a href="#" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--green);color:#111;font-size:11px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;flex-shrink:0;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Descargar formulario
           </a>
         </div>
-        <p style="font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:14px;">Aplica para gastos fuera de red, medicamentos y beneficios especiales. Enviar a través de GEV o al ejecutivo de cuenta.</p>
-        <div class="note" style="margin:0 0 14px;">
-          <strong>Documentos obligatorios:</strong><br>
-          · Factura(s) electrónica(s) desglosada(s)<br>
-          · Receta(s) / Referencia(s) médica(s)<br>
-          · Resultados de exámenes o análisis
+        <div style="background:var(--bg-soft);border:1px solid var(--border);border-top:none;padding:24px;flex:1;display:flex;flex-direction:column;gap:16px;">
+          <p style="font-size:14px;color:var(--gray);line-height:1.7;">Para gastos fuera de red, medicamentos y beneficios especiales. Completá el formulario y envialo por GEV o al ejecutivo de cuenta.</p>
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray-light);margin-bottom:10px;">Documentos requeridos</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
+                <span style="width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;display:block;"></span>Factura(s) electrónica(s) desglosada(s)
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
+                <span style="width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;display:block;"></span>Receta(s) o referencia(s) médica(s)
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
+                <span style="width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;display:block;"></span>Resultados de exámenes o análisis
+              </div>
+            </div>
+          </div>
         </div>
-        <img src="images/33.png" alt="Formulario de reembolso BMI" style="display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:4px;">
       </div>
-      <div style="background:var(--bg-soft);border:1px solid var(--border);padding:28px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;">
-          <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin:0;">Pre-autorización</p>
-          <a href="#" style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:var(--nav);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;white-space:nowrap;flex-shrink:0;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+
+      <!-- Pre-autorización -->
+      <div style="display:flex;flex-direction:column;">
+        <div style="background:var(--bg-mid);border:1px solid var(--border);border-left:none;border-bottom:none;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+          <div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light);margin-bottom:4px;">Trámite</div>
+            <div style="font-size:16px;font-weight:900;color:#1a1a1a;">Pre-autorización</div>
+          </div>
+          <a href="#" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--green);color:#111;font-size:11px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;flex-shrink:0;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Descargar formulario
           </a>
         </div>
-        <p style="font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:12px;">Requerida para gastos ≥ $300, alergias, cirugías y maternidad.</p>
-        <div class="warning" style="margin:0 0 12px;">Casos no pre-autorizados pueden ser penalizados por la aseguradora.</div>
-        <p style="font-size:13px;color:var(--gray);line-height:1.65;margin-bottom:14px;">Enviá el formulario a <strong>jrodriguez@garrettbrokers.com</strong> o a través de la plataforma GEV antes del procedimiento.</p>
-        <img src="images/34.png" alt="Formulario de pre-autorización BMI" style="display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:4px;">
+        <div style="background:var(--bg-soft);border:1px solid var(--border);border-top:none;padding:24px;flex:1;display:flex;flex-direction:column;gap:16px;">
+          <p style="font-size:14px;color:var(--gray);line-height:1.7;">Debe tramitarse <strong>antes</strong> del procedimiento. Enviá el formulario a <strong>jrodriguez@garrettbrokers.com</strong> o por GEV.</p>
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray-light);margin-bottom:10px;">¿Cuándo aplica?</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
+                <span style="width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;display:block;"></span>Gastos de $300 o más
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
+                <span style="width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;display:block;"></span>Pruebas de alergia
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
+                <span style="width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;display:block;"></span>Cirugías y procedimientos
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
+                <span style="width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;display:block;"></span>Maternidad
+              </div>
+            </div>
+          </div>
+          <div class="warning" style="margin:0;">Casos no pre-autorizados pueden ser penalizados por la aseguradora.</div>
+        </div>
       </div>
+
     </div>
 
     <!-- GEV -->
     <div style="background:var(--bg-soft);border:1px solid var(--border);padding:32px;margin-bottom:48px;">
-      <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+      <div class="gev-header">
         <div style="width:44px;height:44px;background:var(--nav);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
-        <div>
+        <div style="flex:1;min-width:0;">
           <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-light);margin-bottom:2px;">Plataforma digital</div>
           <div style="font-size:18px;font-weight:900;color:#1a1a1a;">GEV — Garrett Ejecutivo Virtual</div>
         </div>
-        <a href="https://gev.garrettbrokers.com" target="_blank" style="margin-left:auto;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#111;background:var(--green);padding:10px 20px;text-decoration:none;white-space:nowrap;">Ir a GEV →</a>
+        <a href="https://gev.garrettbrokers.com" target="_blank" class="gev-cta">Ir a GEV →</a>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:20px;">
-        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray);">
-          <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:var(--green);flex-shrink:0;margin-top:1px;"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Crear y rastrear reclamos en línea
+      <!-- GEV acciones visuales -->
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:4px;">
+
+        <div style="background:#fff;border:1px solid var(--border);padding:18px 20px;display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:32px;height:32px;background:var(--bg-mid);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:3px;">Crear reclamo</div>
+            <div style="font-size:12px;color:var(--gray-light);line-height:1.55;">Iniciá un reclamo de reembolso o pre-autorización directamente desde la plataforma.</div>
+          </div>
         </div>
-        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray);">
-          <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:var(--green);flex-shrink:0;margin-top:1px;"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Adjuntar facturas, recetas y resultados
+
+        <div style="background:#fff;border:1px solid var(--border);border-left:none;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:32px;height:32px;background:var(--bg-mid);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:3px;">Adjuntar documentos</div>
+            <div style="font-size:12px;color:var(--gray-light);line-height:1.55;">Subí facturas electrónicas, recetas médicas y resultados de exámenes al reclamo.</div>
+          </div>
         </div>
-        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray);">
-          <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:var(--green);flex-shrink:0;margin-top:1px;"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Enviar formularios de pre-autorización
+
+        <div style="background:#fff;border:1px solid var(--border);border-top:none;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:32px;height:32px;background:var(--bg-mid);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:3px;">Rastrear estado</div>
+            <div style="font-size:12px;color:var(--gray-light);line-height:1.55;">Seguí el avance de tu reclamo en tiempo real — desde enviado hasta aprobado o pagado.</div>
+          </div>
         </div>
-        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray);">
-          <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:var(--green);flex-shrink:0;margin-top:1px;"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Consultar con tu ejecutivo de cuenta
+
+        <div style="background:#fff;border:1px solid var(--border);border-top:none;border-left:none;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:32px;height:32px;background:var(--bg-mid);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:3px;">Consultar con tu ejecutivo</div>
+            <div style="font-size:12px;color:var(--gray-light);line-height:1.55;">Chateá directamente con el equipo de Garrett Unicen desde la plataforma GEV.</div>
+          </div>
         </div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-        <img src="images/36.jpg" alt="GEV dashboard" style="width:100%;border-radius:4px;border:1px solid var(--border);">
-        <img src="images/37.jpg" alt="GEV reclamo" style="width:100%;border-radius:4px;border:1px solid var(--border);">
+
       </div>
     </div>
 
@@ -814,7 +1062,7 @@ footer{
   <div class="footer-left">
     <svg height="20" width="70" viewBox="0 0 204 59" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#fl)"><path d="M71.0275 35.2071V47.1559H63.2139V12.4644H75.4613C84.1952 12.4644 88.5789 16.146 88.5789 23.5261C88.5789 27.007 87.324 29.8352 84.8143 31.9773C82.3045 34.1194 78.9582 35.2071 74.7586 35.2071H71.0275ZM71.0275 18.4555V29.2662H74.1061C78.2722 29.2662 80.3469 27.4421 80.3469 23.7939C80.3469 20.1457 78.2722 18.4387 74.1061 18.4387H71.0275V18.4555Z" fill="rgba(255,255,255,0.35)"/><path d="M112.289 36.9474H96.126C96.377 40.5454 98.6525 42.336 102.919 42.336C105.646 42.336 108.039 41.6833 110.097 40.4115V45.934C107.805 47.1557 104.843 47.7749 101.179 47.7749C97.1801 47.7749 94.0848 46.6703 91.8595 44.4446C89.6509 42.2356 88.5466 39.1396 88.5466 35.1735C88.5466 31.2073 89.7346 27.7933 92.1272 25.4003C94.5198 22.9904 97.4478 21.8022 100.928 21.8022C104.408 21.8022 107.336 22.8733 109.31 25.0154C111.285 27.1574 112.272 30.086 112.272 33.751V36.9641L112.289 36.9474ZM105.211 32.2448C105.211 28.697 103.772 26.9231 100.894 26.9231C99.6731 26.9231 98.6023 27.4252 97.7155 28.446C96.812 29.4668 96.2766 30.7387 96.0758 32.2448H105.194H105.211Z" fill="rgba(255,255,255,0.35)"/><path d="M136.515 47.1554H129.287V43.5909H129.187C127.53 46.3689 125.071 47.7579 121.808 47.7579C119.399 47.7579 117.508 47.0885 116.119 45.7162C114.747 44.3607 114.061 42.5199 114.061 40.2606C114.061 35.4577 116.906 32.6797 122.594 31.9434L129.32 31.0564C129.32 28.3454 127.848 26.9899 124.903 26.9899C121.959 26.9899 119.148 27.8601 116.487 29.6172V23.8604C117.558 23.3082 119.014 22.8229 120.854 22.4045C122.695 21.9861 124.385 21.7686 125.907 21.7686C132.968 21.7686 136.498 25.2996 136.498 32.345V47.1554H136.515ZM129.337 37.081V35.4075L124.836 35.9932C122.343 36.3112 121.105 37.4324 121.105 39.357C121.105 40.2272 121.406 40.9468 122.009 41.499C122.628 42.0513 123.431 42.3358 124.468 42.3358C125.907 42.3358 127.062 41.8337 127.982 40.8464C128.885 39.859 129.337 38.6039 129.337 37.081Z" fill="rgba(255,255,255,0.35)"/><path d="M156.576 29.2664C155.656 28.7644 154.585 28.5133 153.364 28.5133C151.707 28.5133 150.402 29.1325 149.465 30.3375C148.528 31.5591 148.06 33.2159 148.06 35.3077V47.1393H140.43V22.3716H148.06V26.9737H148.16C149.382 23.61 151.54 21.9365 154.686 21.9365C155.489 21.9365 156.125 22.0369 156.576 22.221V29.2664Z" fill="rgba(255,255,255,0.35)"/><path d="M166.732 38.7547C166.732 39.809 166.983 40.6123 167.485 41.1478C167.987 41.6833 168.656 41.951 169.493 41.951C169.911 41.951 170.329 41.9176 170.748 41.8339C171.166 41.767 171.584 41.6833 172.002 41.5996V46.9715C171.082 47.2058 170.112 47.4066 169.091 47.5573C168.07 47.7079 167 47.7915 165.895 47.7915C164.875 47.7915 163.955 47.6242 163.118 47.2895C162.298 46.9548 161.579 46.4695 160.993 45.8168C160.407 45.1809 159.956 44.4111 159.638 43.5074C159.32 42.6037 159.153 41.5829 159.153 40.4449V10.4727H166.749V38.7547H166.732Z" fill="rgba(255,255,255,0.35)"/><path d="M173.843 46.5028V40.3109C175.114 41.0639 176.369 41.6329 177.607 42.0011C178.862 42.3692 180.033 42.5533 181.154 42.5533C182.51 42.5533 183.581 42.3692 184.35 42.0011C185.137 41.6329 185.521 41.0639 185.521 40.3109C185.521 39.8255 185.354 39.4239 184.986 39.0892C184.635 38.7712 184.183 38.4867 183.614 38.2525C183.062 38.0182 182.443 37.7839 181.79 37.5998C181.138 37.399 180.502 37.1814 179.883 36.9471C178.896 36.579 178.026 36.1773 177.289 35.7422C176.537 35.3071 175.917 34.8218 175.399 34.2528C174.897 33.6838 174.512 33.0312 174.244 32.2948C173.977 31.5585 173.843 30.6715 173.843 29.6674C173.843 28.2784 174.144 27.0903 174.746 26.0862C175.349 25.0821 176.152 24.2621 177.172 23.6261C178.176 22.9902 179.331 22.5216 180.636 22.2204C181.924 21.9192 183.279 21.7686 184.685 21.7686C185.789 21.7686 186.893 21.8522 188.014 22.0196C189.152 22.1869 190.256 22.438 191.344 22.7559V28.6633C190.374 28.0944 189.353 27.676 188.232 27.3915C187.128 27.107 186.04 26.9731 184.986 26.9731C184.484 26.9731 184.016 27.0066 183.581 27.107C183.129 27.1907 182.744 27.3246 182.393 27.4919C182.058 27.6592 181.79 27.8768 181.606 28.1446C181.405 28.4123 181.322 28.7135 181.322 29.0482C181.322 29.5001 181.456 29.885 181.757 30.203C182.058 30.5209 182.426 30.8054 182.895 31.0397C183.363 31.274 183.882 31.4915 184.451 31.6756C185.019 31.8597 185.588 32.0605 186.157 32.2446C187.178 32.5961 188.081 32.981 188.918 33.4161C189.738 33.8344 190.44 34.3197 191.026 34.8887C191.612 35.4577 192.063 36.1104 192.381 36.8635C192.699 37.6165 192.85 38.5202 192.85 39.5745C192.85 41.0472 192.532 42.3023 191.896 43.3399C191.26 44.3774 190.424 45.2309 189.353 45.8836C188.299 46.5362 187.077 47.0216 185.689 47.3061C184.317 47.6073 182.878 47.7579 181.389 47.7579C178.661 47.7579 176.152 47.3395 173.809 46.5028H173.843Z" fill="rgba(255,255,255,0.35)"/><path d="M23.107 29.2329C23.107 18.2381 32.0081 9.33507 43.0008 9.33507C46.4809 9.33507 49.7603 10.2388 52.6046 11.8118C47.3509 4.81664 39.0019 0.314941 29.5988 0.314941C13.6871 0.314941 0.787109 13.2176 0.787109 29.1325C0.787109 45.0474 13.6871 57.95 29.5988 57.95C38.8513 57.95 47.0665 53.5822 52.3369 46.8213C49.5595 48.294 46.3805 49.1475 43.0008 49.1475C32.0081 49.1475 23.107 40.2445 23.107 29.2496V29.2329ZM21.3669 48.227H14.8751V17.3678H11.947L7.9984 10.5567H21.3669V48.2103V48.227Z" fill="rgba(255,255,255,0.35)"/><path d="M43.0011 42.9223C50.5599 42.9223 56.6875 36.7934 56.6875 29.2331C56.6875 21.6728 50.5599 15.5439 43.0011 15.5439C35.4423 15.5439 29.3147 21.6728 29.3147 29.2331C29.3147 36.7934 35.4423 42.9223 43.0011 42.9223Z" fill="rgba(255,255,255,0.35)"/></g><defs><clipPath id="fl"><rect width="203.081" height="58.2481"/></clipPath></defs></svg>
     <div class="footer-divider"></div>
-    <span class="footer-text">People &amp; Culture · Beneficios 2026</span>
+    <span class="footer-text">People &amp; Culture · Beneficios</span>
   </div>
   <span class="footer-copy">Seguro colectivo BMI · Garrett Unicen Corredora de Seguros</span>
 </footer>
@@ -841,6 +1089,20 @@ footer{
   });
 </script>
 <script>
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
 function toggleAcc(header) {
   const isOpen = header.classList.contains('open');
   document.querySelectorAll('.acc-header').forEach(h => {
