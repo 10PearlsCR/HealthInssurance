@@ -665,8 +665,42 @@ footer{
 
     <div class="highlight">Siempre que puedas, usá la red de proveedores BMI — obtenés mejores condiciones y evitás trámites de reembolso.</div>
 
+    <!-- Coberturas Preventivas — destacado -->
+    <div style="margin-top:32px;margin-bottom:10px;">
+      <div style="background:#3a3a3a;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="width:36px;height:36px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:2px;">Beneficio destacado</div>
+            <div style="font-size:17px;font-weight:900;color:#fff;">Coberturas Preventivas</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.35);">Chequeo anual · ginecológico · urológico · óptico</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;background:var(--bg-soft);border:1px solid var(--border);border-top:none;">
+        <div style="padding:20px 28px;border-right:1px solid var(--border);">
+          <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:4px;">Chequeo Médico Anual <span style="color:var(--gray-light);font-weight:600;">— $150</span></div>
+          <div style="font-size:13px;color:var(--gray-light);line-height:1.6;">Periodo de espera de 12 meses. Requiere pre-autorización.</div>
+        </div>
+        <div style="padding:20px 28px;">
+          <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:4px;">Beneficio Óptico <span style="color:var(--gray-light);font-weight:600;">— $100</span></div>
+          <div style="font-size:13px;color:var(--gray-light);line-height:1.6;">Periodo de espera de 12 meses. Cubre consulta, examen y lentes.</div>
+        </div>
+        <div style="padding:20px 28px;border-right:1px solid var(--border);border-top:1px solid var(--border);">
+          <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:4px;">Control Ginecológico</div>
+          <div style="font-size:13px;color:var(--gray-light);line-height:1.6;">Consulta y Papanicolaou anual. Mamografía para mujeres +40 años.</div>
+        </div>
+        <div style="padding:20px 28px;border-top:1px solid var(--border);">
+          <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:4px;">Control Urológico</div>
+          <div style="font-size:13px;color:var(--gray-light);line-height:1.6;">Consulta y antígeno prostático para hombres +40 años.</div>
+        </div>
+      </div>
+    </div>
+
     <!-- Acordeones por tipo de cobertura -->
-    <div style="margin-top:32px;">
+    <div style="margin-top:0;">
 
       <div class="accordion">
         <div class="acc-header" onclick="toggleAcc(this)">
@@ -772,27 +806,6 @@ footer{
         </div>
       </div>
 
-      <div class="accordion">
-        <div class="acc-header" onclick="toggleAcc(this)">
-          <div class="acc-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          </div>
-          <div>
-            <div class="acc-title">Coberturas Preventivas</div>
-            <div class="acc-subtitle">Chequeo anual · ginecológico · urológico · óptico</div>
-          </div>
-          <div class="acc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
-        </div>
-        <div class="acc-body">
-          <ul>
-            <li><div><strong>Chequeo Médico Anual — $150.</strong> Aplica periodo de espera de 12 meses. Requiere previa autorización.</div></li>
-            <li><div><strong>Control Ginecológico</strong> — consulta y Papanicolaou anual. Mamografía para mujeres +40 años. Al coaseguro después del deducible.</div></li>
-            <li><div><strong>Control Urológico</strong> — consulta y antígeno prostático para hombres +40 años. Al coaseguro después del deducible.</div></li>
-            <li><div><strong>Beneficio Óptico — $100.</strong> Aplica periodo de espera de 12 meses. Cubre consulta, examen y lentes referidos por oftalmólogo u optometrista.</div></li>
-          </ul>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -802,6 +815,15 @@ footer{
   <div class="section-inner">
     <div class="section-tag">03 · Cómo usarlo</div>
     <h2 class="section-h">Red médica, reembolsos<br>y <em>pre-autorizaciones.</em></h2>
+
+    <!-- Aviso pre-autorización -->
+    <div style="display:flex;align-items:flex-start;gap:16px;background:#fff8e1;border:1px solid #ffe082;border-left:4px solid #f59e0b;padding:18px 22px;margin-bottom:40px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <div>
+        <div style="font-size:13px;font-weight:800;color:#92400e;margin-bottom:3px;">Antes de cualquier atención, solicitá una pre-autorización</div>
+        <div style="font-size:13px;font-weight:400;color:#92400e;line-height:1.65;">Todo trámite con el seguro — consultas, procedimientos, exámenes o cirugías — requiere pre-autorización previa. Sin ella, la aseguradora puede no cubrir el gasto. Pedila a tu ejecutivo de cuenta o por GEV antes de la atención.</div>
+      </div>
+    </div>
 
     <!-- Red médica: 3 pasos -->
     <p style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gray-light);margin-bottom:20px;display:flex;align-items:center;gap:10px;"><span style="display:block;width:20px;height:2px;background:var(--green);"></span>Cómo buscar un proveedor en red</p>
@@ -855,42 +877,11 @@ footer{
     <!-- Reembolso + Pre-autorización -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:64px;">
 
-      <!-- Reembolso -->
+      <!-- Pre-autorización (izquierda) -->
       <div style="display:flex;flex-direction:column;">
         <div style="background:var(--bg-mid);border:1px solid var(--border);border-bottom:none;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
           <div>
-            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light);margin-bottom:4px;">Trámite</div>
-            <div style="font-size:16px;font-weight:900;color:#1a1a1a;">Reembolso de gastos</div>
-          </div>
-          <a href="#" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--green);color:#111;font-size:11px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;flex-shrink:0;">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Descargar formulario
-          </a>
-        </div>
-        <div style="background:var(--bg-soft);border:1px solid var(--border);border-top:none;padding:24px;flex:1;display:flex;flex-direction:column;gap:16px;">
-          <p style="font-size:14px;color:var(--gray);line-height:1.7;">Para gastos fuera de red, medicamentos y beneficios especiales. Completá el formulario y envialo por GEV o al ejecutivo de cuenta.</p>
-          <div>
-            <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray-light);margin-bottom:10px;">Documentos requeridos</div>
-            <div style="display:flex;flex-direction:column;gap:8px;">
-              <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
-                <span style="width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;display:block;"></span>Factura(s) electrónica(s) desglosada(s)
-              </div>
-              <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
-                <span style="width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;display:block;"></span>Receta(s) o referencia(s) médica(s)
-              </div>
-              <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
-                <span style="width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;display:block;"></span>Resultados de exámenes o análisis
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Pre-autorización -->
-      <div style="display:flex;flex-direction:column;">
-        <div style="background:var(--bg-mid);border:1px solid var(--border);border-left:none;border-bottom:none;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
-          <div>
-            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light);margin-bottom:4px;">Trámite</div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#d97706;margin-bottom:4px;">⚠ Antes de la atención</div>
             <div style="font-size:16px;font-weight:900;color:#1a1a1a;">Pre-autorización</div>
           </div>
           <a href="#" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--green);color:#111;font-size:11px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;flex-shrink:0;">
@@ -898,26 +889,53 @@ footer{
             Descargar formulario
           </a>
         </div>
-        <div style="background:var(--bg-soft);border:1px solid var(--border);border-top:none;padding:24px;flex:1;display:flex;flex-direction:column;gap:16px;">
-          <p style="font-size:14px;color:var(--gray);line-height:1.7;">Debe tramitarse <strong>antes</strong> del procedimiento. Enviá el formulario a <strong>jrodriguez@garrettbrokers.com</strong> o por GEV.</p>
-          <div>
-            <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray-light);margin-bottom:10px;">¿Cuándo aplica?</div>
-            <div style="display:flex;flex-direction:column;gap:8px;">
-              <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
-                <span style="width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;display:block;"></span>Gastos de $300 o más
-              </div>
-              <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
-                <span style="width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;display:block;"></span>Pruebas de alergia
-              </div>
-              <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
-                <span style="width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;display:block;"></span>Cirugías y procedimientos
-              </div>
-              <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray);">
-                <span style="width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;display:block;"></span>Maternidad
-              </div>
+        <div style="background:var(--bg-soft);border:1px solid var(--border);border-top:none;padding:24px;flex:1;display:flex;flex-direction:column;gap:14px;">
+          <p style="font-size:13px;color:var(--gray);line-height:1.65;">Necesaria para consultas, cirugías, exámenes o cualquier gasto de $300 o más. <strong>Siempre antes de la atención.</strong></p>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</span>
+              <div style="font-size:13px;color:var(--gray);line-height:1.55;"><strong style="color:#1a1a1a;">Descargá el formulario</strong> y completalo con la indicación médica.</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</span>
+              <div style="font-size:13px;color:var(--gray);line-height:1.55;"><strong style="color:#1a1a1a;">Envialo por GEV</strong> o a <strong style="color:#1a1a1a;">jrodriguez@garrettbrokers.com</strong>.</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</span>
+              <div style="font-size:13px;color:var(--gray);line-height:1.55;"><strong style="color:#1a1a1a;">Esperá la confirmación</strong> antes de realizarte la atención o procedimiento.</div>
             </div>
           </div>
-          <div class="warning" style="margin:0;">Casos no pre-autorizados pueden ser penalizados por la aseguradora.</div>
+        </div>
+      </div>
+
+      <!-- Reembolso (derecha) -->
+      <div style="display:flex;flex-direction:column;">
+        <div style="background:var(--bg-mid);border:1px solid var(--border);border-left:none;border-bottom:none;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+          <div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light);margin-bottom:4px;">Después de la atención</div>
+            <div style="font-size:16px;font-weight:900;color:#1a1a1a;">Reembolso de gastos</div>
+          </div>
+          <a href="#" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--green);color:#111;font-size:11px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;flex-shrink:0;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Descargar formulario
+          </a>
+        </div>
+        <div style="background:var(--bg-soft);border:1px solid var(--border);border-top:none;border-left:none;padding:24px;flex:1;display:flex;flex-direction:column;gap:14px;">
+          <p style="font-size:13px;color:var(--gray);line-height:1.65;">Usalo cuando pagaste de tu bolsillo — fuera de red, medicamentos o beneficios especiales.</p>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</span>
+              <div style="font-size:13px;color:var(--gray);line-height:1.55;"><strong style="color:#1a1a1a;">Descargá el formulario</strong> y completalo con los datos de la atención.</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</span>
+              <div style="font-size:13px;color:var(--gray);line-height:1.55;"><strong style="color:#1a1a1a;">Adjuntá facturas electrónicas</strong> y recetas o referencias médicas.</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</span>
+              <div style="font-size:13px;color:var(--gray);line-height:1.55;"><strong style="color:#1a1a1a;">Envialo por GEV</strong> o directamente a tu ejecutivo de cuenta en Garrett Unicen.</div>
+            </div>
+          </div>
         </div>
       </div>
 
