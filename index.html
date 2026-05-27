@@ -502,7 +502,7 @@ footer{
           <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green);">Póliza Salud</span>
           <span style="width:1px;height:14px;background:rgba(255,255,255,0.15);display:block;"></span>
           <span style="font-size:14px;font-weight:800;color:#fff;letter-spacing:1px;">CRSC000000190</span>
-          <a href="pdf/CONDICIONES PARTICULARES 2026-2027 SALUD.pdf" download style="display:inline-flex;align-items:center;gap:5px;margin-left:6px;padding:5px 10px;background:var(--green);color:#111;font-size:10px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;">
+          <a href="pdf/CONDICIONES PARTICULARES 2026-2027 SALUD.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-left:6px;padding:5px 10px;background:var(--green);color:#111;font-size:10px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             PDF
           </a>
@@ -511,7 +511,7 @@ footer{
           <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green);">Póliza Vida</span>
           <span style="width:1px;height:14px;background:rgba(255,255,255,0.15);display:block;"></span>
           <span style="font-size:14px;font-weight:800;color:#fff;letter-spacing:1px;">CRSC000000194</span>
-          <a href="pdf/CONDICIONES PARTICULARES 2026-2027 VIDA.pdf" download style="display:inline-flex;align-items:center;gap:5px;margin-left:6px;padding:5px 10px;background:var(--green);color:#111;font-size:10px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;">
+          <a href="pdf/CONDICIONES PARTICULARES 2026-2027 VIDA.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-left:6px;padding:5px 10px;background:var(--green);color:#111;font-size:10px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             PDF
           </a>
@@ -852,6 +852,99 @@ footer{
             <li><div><strong>Localización de mejores precios en medicamentos.</strong> Sin límite de monto ni eventos.</div></li>
             <li><div><strong>Infovacunas.</strong> Sin límite de monto ni eventos.</div></li>
             <li><div><strong>Traslado y cremación de mascota fallecida — ₡110,000.</strong> 1 evento. Incluye traslado desde el hogar o veterinaria, cremación y entrega de cenizas en urna con placa personalizada.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10z"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div>
+            <div class="acc-title">Nutrición</div>
+            <div class="acc-subtitle">Orientación · dietas · recetas · referencia de especialistas</div>
+          </div>
+          <div class="acc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </div>
+        <div class="acc-body">
+          <div class="note">Los montos están expresados en colones costarricenses (₡). Todos los servicios son telefónicos o de coordinación.</div>
+          <ul>
+            <li><div><strong>Información y orientación nutricional telefónica — ₡30,000.</strong> Hasta 3 eventos al año.</div></li>
+            <li><div><strong>Consejos nutricionales — ₡15,000.</strong> Hasta 3 eventos al año.</div></li>
+            <li><div><strong>Guía para preparación de dietas saludables y bien balanceadas — ₡30,000.</strong> Hasta 3 eventos al año.</div></li>
+            <li><div><strong>Información sobre contenido calórico de los alimentos / tabla de calorías — ₡15,000.</strong> Hasta 3 eventos al año.</div></li>
+            <li><div><strong>Recetas especiales para diabetes, sobrepeso o intolerantes a la lactosa — ₡15,000.</strong> Hasta 3 eventos al año.</div></li>
+            <li><div><strong>Referencias de especialistas en nutrición.</strong> Sin límite de monto ni eventos.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <div>
+            <div class="acc-title">Fitness</div>
+            <div class="acc-subtitle">Entrenador · rutinas · yoga · clases funcionales</div>
+          </div>
+          <div class="acc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </div>
+        <div class="acc-body">
+          <div class="note">Los montos están expresados en colones costarricenses (₡). Las clases en vivo son programadas y sujetas a disponibilidad.</div>
+          <ul>
+            <li><div><strong>Orientación telefónica de instructor o entrenador físico — ₡25,000.</strong> Sin límite de eventos.</div></li>
+            <li><div><strong>Diseño de rutinas de ejercicio en el hogar o centro de entrenamiento — ₡25,000.</strong> Sin límite de eventos.</div></li>
+            <li><div><strong>Clases programadas en vivo de yoga — ₡15,000.</strong> Hasta 10 eventos al año.</div></li>
+            <li><div><strong>Clases programadas funcionales en vivo sin máquinas — ₡15,000.</strong> Hasta 4 eventos al año.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <div class="acc-title">Asistencia en el Hogar</div>
+            <div class="acc-subtitle">Plomería · cerrajería · electricidad · vidrios · PC</div>
+          </div>
+          <div class="acc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </div>
+        <div class="acc-body">
+          <div class="note">Cobertura en todo el territorio nacional. Los montos están expresados en colones costarricenses (₡). Hasta 2 eventos por servicio al año.</div>
+          <ul>
+            <li><div><strong>Fontanería (plomería) — ₡40,000.</strong> Hasta 2 eventos al año.</div></li>
+            <li><div><strong>Cerrajería — ₡40,000.</strong> Hasta 2 eventos al año.</div></li>
+            <li><div><strong>Electricidad — ₡40,000.</strong> Hasta 2 eventos al año.</div></li>
+            <li><div><strong>Rotura de vidrios exteriores (cerramiento) — ₡40,000.</strong> Hasta 2 eventos al año.</div></li>
+            <li><div><strong>Reparación de PCs y portátiles en el hogar — ₡40,000.</strong> Hasta 2 eventos al año.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div>
+            <div class="acc-title">Asistencia en caso de Hospitalización</div>
+            <div class="acc-subtitle">Artículos de aseo · traslados · movilidad · medicamentos</div>
+          </div>
+          <div class="acc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </div>
+        <div class="acc-body">
+          <div class="note">Cobertura nacional. Límite de 3 eventos por servicio, 1 asistencia por persona. Los traslados cubren hasta 25 km.</div>
+          <ul>
+            <li><div><strong>Dotación de artículos de aseo personal — ₡30,000.</strong> Hasta 3 eventos. Incluye cepillo y pasta dental, desodorante, toallas, alcohol en gel, toallas húmedas, jabón, toallas sanitarias y rasuradora desechable, entregados en el lugar de internación.</div></li>
+            <li><div><strong>Coordinación de movilidad hacia el hospital — hasta 25 km.</strong> Hasta 3 eventos (1 por persona). Cubre hasta 4 familiares hacia un mismo destino, durante los primeros 3 días de internación, 1 traslado por día.</div></li>
+            <li><div><strong>Movilidad de documentos y paquetes — hasta 25 km.</strong> Hasta 3 eventos (1 por persona). Gestiona entrega de ropa, incapacidades, cargador telefónico, artículos personales y documentos laborales.</div></li>
+            <li><div><strong>Transporte de regreso al hogar — hasta 25 km.</strong> Hasta 3 eventos (1 por persona). Puede ser movilidad o ambulancia según criterio médico.</div></li>
+            <li><div><strong>Control de agenda para ingesta puntual de medicamentos.</strong> Sin costo.</div></li>
+            <li><div><strong>Asistencia nutricional post hospitalización.</strong> Sin costo.</div></li>
           </ul>
         </div>
       </div>
