@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Seguro de Salud BMI — 10Pearls</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --green:#D4FF27;
-  --green-dim:rgba(212,255,39,0.13);
+  --green:#6366F1;
+  --green-dim:rgba(99,102,241,0.15);
   --nav:#111111;
   --bg:#ffffff;
   --bg-soft:#f8f9fa;
@@ -20,7 +20,7 @@
   --max:1120px;
 }
 html{scroll-behavior:auto}
-body{font-family:'Nunito Sans',Arial,sans-serif;color:#1a1a1a;background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+body{font-family:'Figtree',Arial,sans-serif;color:#1a1a1a;background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 
 /* ── NAV ── */
 nav{
@@ -39,7 +39,7 @@ nav{
 .nav-link:hover{color:#fff;}
 .nav-cta{
   font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  color:#111;background:var(--green);padding:8px 20px;text-decoration:none;
+  color:#fff;background:var(--green);padding:8px 20px;text-decoration:none;
   transition:opacity .2s;
 }
 .nav-cta:hover{opacity:.85;}
@@ -57,7 +57,7 @@ nav{
 }
 .mobile-menu.open{display:flex;}
 .mobile-menu-link{
-  font-size:32px;font-weight:900;color:rgba(255,255,255,0.75);
+  font-size:32px;font-weight:700;color:rgba(255,255,255,0.75);
   text-decoration:none;padding:16px 0;letter-spacing:-0.5px;
   border-bottom:1px solid rgba(255,255,255,0.07);transition:color .2s;
 }
@@ -65,7 +65,7 @@ nav{
 .mobile-menu-cta{
   margin-top:32px;align-self:flex-start;
   font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  color:#111;background:var(--green);padding:14px 28px;text-decoration:none;
+  color:#fff;background:var(--green);padding:14px 28px;text-decoration:none;
 }
 
 /* ── HERO ── */
@@ -82,7 +82,7 @@ nav{
 .hero-glow{
   position:absolute;top:-20%;right:-10%;
   width:600px;height:500px;
-  background:radial-gradient(ellipse,rgba(212,255,39,0.10) 0%,transparent 65%);
+  background:radial-gradient(ellipse,rgba(99,102,241,0.10) 0%,transparent 65%);
   pointer-events:none;
 }
 .hero-inner{max-width:var(--max);margin:0 auto;position:relative;z-index:1;display:flex;align-items:center;gap:60px;}
@@ -95,13 +95,12 @@ nav{
 }
 .hero-eyebrow::before{content:'';display:block;width:24px;height:2px;background:var(--green);}
 .hero h1{
-  font-size:56px;font-weight:900;letter-spacing:-2px;line-height:1.05;
+  font-size:56px;font-weight:700;letter-spacing:-2px;line-height:1.05;
   color:#fff;margin-bottom:20px;max-width:700px;
 }
 .hero h1 em{
   font-style:normal;
-  background:var(--green);color:#111;
-  padding:2px 10px 4px;display:inline;
+  color:var(--green);
 }
 .hero-sub{
   font-size:17px;font-weight:300;color:rgba(255,255,255,0.55);
@@ -111,7 +110,7 @@ nav{
 .hero-stats{display:flex;gap:0;margin-top:48px;border-top:1px solid rgba(255,255,255,0.1);padding-top:40px;}
 .hero-stat{flex:1;padding-right:40px;border-right:1px solid rgba(255,255,255,0.1);margin-right:40px;}
 .hero-stat:last-child{border:none;margin:0;padding:0;}
-.hero-stat-val{font-size:32px;font-weight:900;letter-spacing:-1px;color:#fff;}
+.hero-stat-val{font-size:32px;font-weight:700;letter-spacing:-1px;color:#fff;}
 .hero-stat-val span{color:var(--green);}
 .hero-stat-label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-top:5px;}
 
@@ -126,8 +125,8 @@ section.alt{background:var(--bg-soft);}
   color:var(--gray-light);display:flex;align-items:center;gap:10px;margin-bottom:14px;
 }
 .section-tag::before{content:'';display:block;width:20px;height:2px;background:var(--green);}
-.section-h{font-size:38px;font-weight:900;letter-spacing:-1.2px;line-height:1.15;color:#1a1a1a;margin-bottom:14px;}
-.section-h em{font-style:normal;background:var(--green);color:#111;padding:1px 8px 3px;display:inline;}
+.section-h{font-size:38px;font-weight:700;letter-spacing:-1.2px;line-height:1.15;color:#1a1a1a;margin-bottom:14px;}
+.section-h em{font-style:normal;color:var(--green);}
 .section-lead{font-size:16px;font-weight:400;color:var(--gray);line-height:1.75;max-width:640px;margin-bottom:48px;}
 
 /* ── VIDA HERO CARD ── */
@@ -138,12 +137,12 @@ section.alt{background:var(--bg-soft);}
 }
 .vida-hero-text{}
 .vida-hero-title{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:8px;}
-.vida-hero-amount{font-size:52px;font-weight:900;letter-spacing:-2px;color:#fff;}
+.vida-hero-amount{font-size:52px;font-weight:700;letter-spacing:-2px;color:#fff;}
 .vida-hero-amount span{color:var(--green);}
 .vida-hero-desc{font-size:14px;color:rgba(255,255,255,0.5);margin-top:8px;line-height:1.6;}
 .vida-tag{
-  background:var(--green);color:#111;
-  font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+  background:var(--green);color:#fff;
+  font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
   padding:10px 24px;white-space:nowrap;
 }
 
@@ -153,19 +152,19 @@ section.alt{background:var(--bg-soft);}
   background:var(--bg-soft);border:1px solid var(--border);
   padding:24px;transition:border-color .2s,transform .2s,box-shadow .2s;
 }
-.benefit-card:hover{border-color:rgba(90,110,0,.3);transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,0.07);}
+.benefit-card:hover{border-color:rgba(99,102,241,0.3);transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,0.07);}
 .benefit-card-icon{
   width:36px;height:36px;background:var(--green);
   display:flex;align-items:center;justify-content:center;
-  color:#111;margin-bottom:14px;
+  color:#fff;margin-bottom:14px;
 }
 .benefit-card-icon svg{width:18px;height:18px;}
-.benefit-card-title{font-size:15px;font-weight:800;color:#1a1a1a;margin-bottom:6px;}
+.benefit-card-title{font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:6px;}
 .benefit-card-desc{font-size:14px;font-weight:400;color:var(--gray);line-height:1.65;}
 .benefit-card-amount{
   display:inline-block;margin-top:10px;
   font-size:11px;font-weight:700;letter-spacing:1px;
-  background:var(--green-dim);color:#3a4a00;
+  background:var(--green-dim);color:#3730a3;
   padding:4px 10px;
 }
 
@@ -191,7 +190,7 @@ section.alt{background:var(--bg-soft);}
   font-size:11px;font-weight:700;letter-spacing:.5px;
   padding:3px 10px;margin-left:auto;white-space:nowrap;flex-shrink:0;
 }
-.cov-tag.green{background:var(--green);color:#111;}
+.cov-tag.green{background:var(--green);color:#fff;}
 .cov-tag.gray{background:var(--bg-mid);color:var(--gray);}
 
 /* ── STATS BANNER ── */
@@ -206,7 +205,7 @@ section.alt{background:var(--bg-soft);}
 }
 .stats-banner-item:last-child{border-right:none;}
 .stats-val{
-  font-size:48px;font-weight:900;letter-spacing:-2px;
+  font-size:48px;font-weight:700;letter-spacing:-2px;
   line-height:1;color:#fff;
 }
 .stats-val em{font-style:normal;color:var(--green);}
@@ -257,6 +256,7 @@ section.alt{background:var(--bg-soft);}
 .acc-header.open{background:var(--nav);}
 .acc-header.open .acc-title{color:#fff;}
 .acc-header.open .acc-icon-wrap{background:var(--green);}
+.acc-header.open .acc-icon-wrap svg{color:#fff;}
 .acc-header.open .acc-arrow{color:var(--green);}
 .acc-icon-wrap{
   width:32px;height:32px;flex-shrink:0;
@@ -264,7 +264,7 @@ section.alt{background:var(--bg-soft);}
   transition:background .2s;
 }
 .acc-icon-wrap svg{width:16px;height:16px;color:#1a1a1a;}
-.acc-title{font-size:15px;font-weight:800;color:#1a1a1a;flex:1;transition:color .2s;}
+.acc-title{font-size:15px;font-weight:600;color:#1a1a1a;flex:1;transition:color .2s;}
 .acc-subtitle{font-size:12px;font-weight:600;color:var(--gray-light);}
 .acc-arrow{margin-left:auto;flex-shrink:0;color:var(--gray-light);transition:transform .25s,color .2s;}
 .acc-arrow svg{width:16px;height:16px;}
@@ -290,17 +290,17 @@ section.alt{background:var(--bg-soft);}
 .step-num-wrap{
   width:36px;height:36px;background:var(--green);
   display:flex;align-items:center;justify-content:center;
-  font-size:13px;font-weight:900;color:#111;flex-shrink:0;
+  font-size:13px;font-weight:700;color:#fff;flex-shrink:0;
 }
 .step-line{width:2px;flex:1;background:var(--border);margin:0 auto;}
 .step:last-child .step-line{display:none;}
 .step-right{flex:1;padding:0 0 24px;}
-.step-title{font-size:15px;font-weight:800;color:#1a1a1a;margin-bottom:4px;padding-top:6px;}
+.step-title{font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:4px;padding-top:6px;}
 .step-desc{font-size:14px;font-weight:400;color:var(--gray);line-height:1.6;}
 .step-link{
   display:inline-block;margin-top:6px;
   font-size:12px;font-weight:700;letter-spacing:.5px;
-  color:#3a6a00;text-decoration:underline;word-break:break-all;
+  color:var(--green);text-decoration:underline;word-break:break-all;
 }
 
 /* ── EXCLUSION GRID ── */
@@ -312,9 +312,9 @@ section.alt{background:var(--bg-soft);}
 .excl-num{
   width:28px;height:28px;background:#1a1a1a;
   display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:900;color:#fff;
+  font-size:11px;font-weight:700;color:#fff;
 }
-.excl-title{font-size:14px;font-weight:800;color:#1a1a1a;}
+.excl-title{font-size:14px;font-weight:600;color:#1a1a1a;}
 .excl-desc{font-size:13px;font-weight:400;color:var(--gray);line-height:1.55;}
 
 /* ── CONTACT CARDS ── */
@@ -326,7 +326,7 @@ section.alt{background:var(--bg-soft);}
   font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
   color:var(--green);margin-bottom:12px;
 }
-.contact-card-name{font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;line-height:1.2;}
+.contact-card-name{font-size:22px;font-weight:700;color:#fff;margin-bottom:16px;line-height:1.2;}
 .contact-item{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
 .contact-item svg{width:14px;height:14px;color:rgba(255,255,255,0.4);flex-shrink:0;}
 .contact-item a,.contact-item span{font-size:14px;color:rgba(255,255,255,0.7);text-decoration:none;}
@@ -337,8 +337,8 @@ section.alt{background:var(--bg-soft);}
 }
 .contact-24{
   display:inline-block;margin-bottom:10px;
-  background:var(--green);color:#111;
-  font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+  background:var(--green);color:#fff;
+  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
   padding:4px 10px;
 }
 
@@ -347,7 +347,7 @@ section.alt{background:var(--bg-soft);}
 .gev-cta{
   margin-left:auto;flex-shrink:0;
   font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-  color:#111;background:var(--green);padding:10px 20px;
+  color:#fff;background:var(--green);padding:10px 20px;
   text-decoration:none;white-space:nowrap;
 }
 
@@ -498,20 +498,20 @@ footer{
       </div>
       <!-- Números de póliza + descargas -->
       <div style="display:flex;gap:12px;margin-bottom:32px;flex-wrap:wrap;">
-        <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(212,255,39,0.25);padding:10px 16px;">
+        <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(99,102,241,0.25);padding:10px 16px;">
           <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green);">Póliza Salud</span>
           <span style="width:1px;height:14px;background:rgba(255,255,255,0.15);display:block;"></span>
-          <span style="font-size:14px;font-weight:800;color:#fff;letter-spacing:1px;">CRSC000000190</span>
-          <a href="pdf/CONDICIONES PARTICULARES 2026-2027 SALUD.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-left:6px;padding:5px 10px;background:var(--green);color:#111;font-size:10px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;">
+          <span style="font-size:14px;font-weight:700;color:#fff;letter-spacing:1px;">CRSC000000190</span>
+          <a href="pdf/CONDICIONES PARTICULARES 2026-2027 SALUD.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-left:6px;padding:5px 10px;background:var(--green);color:#fff;font-size:10px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             PDF
           </a>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(212,255,39,0.25);padding:10px 16px;">
+        <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(99,102,241,0.25);padding:10px 16px;">
           <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green);">Póliza Vida</span>
           <span style="width:1px;height:14px;background:rgba(255,255,255,0.15);display:block;"></span>
-          <span style="font-size:14px;font-weight:800;color:#fff;letter-spacing:1px;">CRSC000000194</span>
-          <a href="pdf/CONDICIONES PARTICULARES 2026-2027 VIDA.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-left:6px;padding:5px 10px;background:var(--green);color:#111;font-size:10px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;">
+          <span style="font-size:14px;font-weight:700;color:#fff;letter-spacing:1px;">CRSC000000194</span>
+          <a href="pdf/CONDICIONES PARTICULARES 2026-2027 VIDA.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-left:6px;padding:5px 10px;background:var(--green);color:#fff;font-size:10px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             PDF
           </a>
@@ -543,17 +543,17 @@ footer{
       <svg viewBox="0 0 440 520" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
 
         <!-- Aura suave -->
-        <circle cx="220" cy="260" r="215" fill="rgba(212,255,39,0.02)"/>
-        <circle cx="220" cy="260" r="170" fill="rgba(212,255,39,0.03)"/>
+        <circle cx="220" cy="260" r="215" fill="rgba(99,102,241,0.02)"/>
+        <circle cx="220" cy="260" r="170" fill="rgba(99,102,241,0.03)"/>
 
         <!-- Anillos decorativos -->
         <circle cx="220" cy="260" r="200" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4 14"/>
-        <circle cx="220" cy="260" r="175" stroke="rgba(212,255,39,0.07)" stroke-width="1"/>
+        <circle cx="220" cy="260" r="175" stroke="rgba(99,102,241,0.07)" stroke-width="1"/>
 
         <!-- Escudo principal -->
         <path d="M220 82 L330 122 L330 290 C330 372 275 418 220 440 C165 418 110 372 110 290 L110 122 Z"
-              fill="rgba(212,255,39,0.05)"
-              stroke="rgba(212,255,39,0.4)"
+              fill="rgba(99,102,241,0.05)"
+              stroke="rgba(99,102,241,0.4)"
               stroke-width="1.5"
               stroke-linejoin="round"/>
 
@@ -563,35 +563,35 @@ footer{
 
         <!-- Corazón -->
         <path d="M220 200 C220 200 200 183 192 203 C184 223 220 248 220 248 C220 248 256 223 248 203 C240 183 220 200 220 200Z"
-              fill="rgba(212,255,39,0.14)"
-              stroke="#D4FF27"
+              fill="rgba(99,102,241,0.14)"
+              stroke="#6366F1"
               stroke-width="1.8"
               stroke-linejoin="round"/>
 
         <!-- Línea ECG -->
         <polyline points="130,285 152,285 165,258 179,314 191,272 204,272 213,285 240,285 250,265 260,285 310,285"
-                  stroke="#D4FF27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+                  stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
 
         <!-- Cruz médica -->
-        <line x1="296" y1="158" x2="296" y2="180" stroke="rgba(212,255,39,0.55)" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="285" y1="169" x2="307" y2="169" stroke="rgba(212,255,39,0.55)" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="296" y1="158" x2="296" y2="180" stroke="rgba(99,102,241,0.55)" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="285" y1="169" x2="307" y2="169" stroke="rgba(99,102,241,0.55)" stroke-width="2.5" stroke-linecap="round"/>
 
         <!-- Dot acento superior derecha -->
-        <circle cx="355" cy="105" r="5.5" fill="#D4FF27" opacity="0.6"/>
-        <circle cx="355" cy="105" r="12" fill="rgba(212,255,39,0.1)"/>
+        <circle cx="355" cy="105" r="5.5" fill="#6366F1" opacity="0.6"/>
+        <circle cx="355" cy="105" r="12" fill="rgba(99,102,241,0.1)"/>
 
         <!-- Dot acento inferior izquierda -->
-        <circle cx="70" cy="345" r="4" fill="rgba(212,255,39,0.4)"/>
-        <circle cx="70" cy="345" r="9" fill="rgba(212,255,39,0.07)"/>
+        <circle cx="70" cy="345" r="4" fill="rgba(99,102,241,0.4)"/>
+        <circle cx="70" cy="345" r="9" fill="rgba(99,102,241,0.07)"/>
 
         <!-- Puntos flotantes pequeños -->
         <circle cx="375" cy="275" r="2.5" fill="rgba(255,255,255,0.15)"/>
         <circle cx="62" cy="185" r="2" fill="rgba(255,255,255,0.12)"/>
-        <circle cx="385" cy="210" r="1.8" fill="rgba(212,255,39,0.35)"/>
-        <circle cx="55" cy="300" r="1.5" fill="rgba(212,255,39,0.25)"/>
+        <circle cx="385" cy="210" r="1.8" fill="rgba(99,102,241,0.35)"/>
+        <circle cx="55" cy="300" r="1.5" fill="rgba(99,102,241,0.25)"/>
 
         <!-- Anillo satélite -->
-        <circle cx="378" cy="320" r="20" fill="none" stroke="rgba(212,255,39,0.1)" stroke-width="1"/>
+        <circle cx="378" cy="320" r="20" fill="none" stroke="rgba(99,102,241,0.1)" stroke-width="1"/>
 
         <!-- Fila de puntos inferior -->
         <circle cx="188" cy="468" r="1.5" fill="rgba(255,255,255,0.08)"/>
@@ -691,31 +691,31 @@ footer{
     <div style="margin-top:32px;margin-bottom:10px;">
       <div style="background:var(--nav);padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
         <div style="display:flex;align-items:center;gap:14px;">
-          <div style="width:36px;height:36px;background:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <div style="width:36px;height:36px;background:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
           <div>
             <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:2px;">Beneficio destacado</div>
-            <div style="font-size:17px;font-weight:900;color:#fff;">Coberturas Preventivas</div>
+            <div style="font-size:17px;font-weight:700;color:#fff;">Coberturas Preventivas</div>
           </div>
         </div>
         <div style="font-size:12px;color:rgba(255,255,255,0.35);">Chequeo anual · ginecológico · urológico · óptico</div>
       </div>
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;background:var(--bg-soft);border:1px solid var(--border);border-top:none;">
         <div style="padding:20px 28px;border-right:1px solid var(--border);">
-          <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:4px;">Chequeo Médico Anual <span style="color:var(--gray-light);font-weight:600;">— $150</span></div>
+          <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:4px;">Chequeo Médico Anual <span style="color:var(--gray-light);font-weight:600;">— $150</span></div>
           <div style="font-size:13px;color:var(--gray-light);line-height:1.6;">Periodo de espera de 12 meses. Requiere pre-autorización.</div>
         </div>
         <div style="padding:20px 28px;">
-          <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:4px;">Beneficio Óptico <span style="color:var(--gray-light);font-weight:600;">— $100</span></div>
+          <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:4px;">Beneficio Óptico <span style="color:var(--gray-light);font-weight:600;">— $100</span></div>
           <div style="font-size:13px;color:var(--gray-light);line-height:1.6;">Periodo de espera de 12 meses. Cubre consulta, examen y lentes.</div>
         </div>
         <div style="padding:20px 28px;border-right:1px solid var(--border);border-top:1px solid var(--border);">
-          <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:4px;">Control Ginecológico</div>
+          <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:4px;">Control Ginecológico</div>
           <div style="font-size:13px;color:var(--gray-light);line-height:1.6;">Consulta y Papanicolaou anual. Mamografía para mujeres +40 años.</div>
         </div>
         <div style="padding:20px 28px;border-top:1px solid var(--border);">
-          <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:4px;">Control Urológico</div>
+          <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:4px;">Control Urológico</div>
           <div style="font-size:13px;color:var(--gray-light);line-height:1.6;">Consulta y antígeno prostático para hombres +40 años.</div>
         </div>
       </div>
@@ -963,7 +963,7 @@ footer{
     <div style="display:flex;align-items:flex-start;gap:16px;background:#fff8e1;border:1px solid #ffe082;border-left:4px solid #f59e0b;padding:18px 22px;margin-bottom:40px;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       <div>
-        <div style="font-size:13px;font-weight:800;color:#92400e;margin-bottom:3px;">Antes de cualquier atención, solicitá una pre-autorización</div>
+        <div style="font-size:13px;font-weight:600;color:#92400e;margin-bottom:3px;">Antes de cualquier atención, solicitá una pre-autorización</div>
         <div style="font-size:13px;font-weight:400;color:#92400e;line-height:1.65;">Todo trámite con el seguro — consultas, procedimientos, exámenes o cirugías — requiere pre-autorización previa. Sin ella, la aseguradora puede no cubrir el gasto. Pedila a tu ejecutivo de cuenta o por GEV antes de la atención.</div>
       </div>
     </div>
@@ -974,7 +974,7 @@ footer{
 
       <div style="display:flex;flex-direction:column;">
         <div style="background:var(--bg-mid);border:1px solid var(--border);border-bottom:none;padding:20px 24px;display:flex;align-items:flex-start;justify-content:space-between;">
-          <span style="font-size:42px;font-weight:900;color:#555;line-height:1;letter-spacing:-2px;">01</span>
+          <span style="font-size:42px;font-weight:700;color:#555;line-height:1;letter-spacing:-2px;">01</span>
           <div style="width:34px;height:34px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           </div>
@@ -982,7 +982,7 @@ footer{
         <div style="background:var(--bg-soft);border:1px solid var(--border);border-top:none;padding:20px 24px;flex:1;display:flex;flex-direction:column;gap:10px;">
           <div class="step-title">Ingresá al sitio de BMI</div>
           <div class="step-desc">Buscá médicos, clínicas y hospitales dentro de la red de proveedores de BMI Costa Rica.</div>
-          <a href="https://redmedica.bmicos.com/CostaRica" target="_blank" style="display:inline-flex;align-items:center;gap:7px;margin-top:4px;padding:9px 14px;background:var(--green);color:#111;font-size:12px;font-weight:700;letter-spacing:.5px;text-decoration:none;align-self:flex-start;">
+          <a href="https://redmedica.bmicos.com/CostaRica" target="_blank" style="display:inline-flex;align-items:center;gap:7px;margin-top:4px;padding:9px 14px;background:var(--green);color:#fff;font-size:12px;font-weight:700;letter-spacing:.5px;text-decoration:none;align-self:flex-start;">
             Buscar proveedor en red
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -991,7 +991,7 @@ footer{
 
       <div style="display:flex;flex-direction:column;">
         <div style="background:var(--bg-mid);border:1px solid var(--border);border-left:none;border-bottom:none;padding:20px 24px;display:flex;align-items:flex-start;justify-content:space-between;">
-          <span style="font-size:42px;font-weight:900;color:#555;line-height:1;letter-spacing:-2px;">02</span>
+          <span style="font-size:42px;font-weight:700;color:#555;line-height:1;letter-spacing:-2px;">02</span>
           <div style="width:34px;height:34px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
           </div>
@@ -1004,7 +1004,7 @@ footer{
 
       <div style="display:flex;flex-direction:column;">
         <div style="background:var(--bg-mid);border:1px solid var(--border);border-left:none;border-bottom:none;padding:20px 24px;display:flex;align-items:flex-start;justify-content:space-between;">
-          <span style="font-size:42px;font-weight:900;color:#555;line-height:1;letter-spacing:-2px;">03</span>
+          <span style="font-size:42px;font-weight:700;color:#555;line-height:1;letter-spacing:-2px;">03</span>
           <div style="width:34px;height:34px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.02-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
@@ -1025,9 +1025,9 @@ footer{
         <div style="background:var(--bg-mid);border:1px solid var(--border);border-bottom:none;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
           <div>
             <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#d97706;margin-bottom:4px;">⚠ Antes de la atención</div>
-            <div style="font-size:16px;font-weight:900;color:#1a1a1a;">Pre-autorización</div>
+            <div style="font-size:16px;font-weight:700;color:#1a1a1a;">Pre-autorización</div>
           </div>
-          <a href="pdf/BMI-Formulario-de-Pre-autorizacion.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--green);color:#111;font-size:11px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;flex-shrink:0;">
+          <a href="pdf/BMI-Formulario-de-Pre-autorizacion.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--green);color:#fff;font-size:11px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;flex-shrink:0;">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Descargar formulario
           </a>
@@ -1036,15 +1036,15 @@ footer{
           <p style="font-size:13px;color:var(--gray);line-height:1.65;">Necesaria para consultas, cirugías, exámenes o cualquier gasto de $300 o más. <strong>Siempre antes de la atención.</strong></p>
           <div style="display:flex;flex-direction:column;gap:10px;">
             <div style="display:flex;gap:12px;align-items:flex-start;">
-              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</span>
+              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</span>
               <div style="font-size:13px;color:var(--gray);line-height:1.55;"><strong style="color:#1a1a1a;">Descargá el formulario</strong> y completalo con la indicación médica.</div>
             </div>
             <div style="display:flex;gap:12px;align-items:flex-start;">
-              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</span>
+              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</span>
               <div style="font-size:13px;color:var(--gray);line-height:1.55;"><strong style="color:#1a1a1a;">Envialo por GEV</strong> o a <strong style="color:#1a1a1a;">jrodriguez@garrettbrokers.com</strong>.</div>
             </div>
             <div style="display:flex;gap:12px;align-items:flex-start;">
-              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</span>
+              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</span>
               <div style="font-size:13px;color:var(--gray);line-height:1.55;"><strong style="color:#1a1a1a;">Esperá la confirmación</strong> antes de realizarte la atención o procedimiento.</div>
             </div>
           </div>
@@ -1056,9 +1056,9 @@ footer{
         <div style="background:var(--bg-mid);border:1px solid var(--border);border-left:none;border-bottom:none;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
           <div>
             <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light);margin-bottom:4px;">Después de la atención</div>
-            <div style="font-size:16px;font-weight:900;color:#1a1a1a;">Reembolso de gastos</div>
+            <div style="font-size:16px;font-weight:700;color:#1a1a1a;">Reembolso de gastos</div>
           </div>
-          <a href="pdf/BMI-Formulario-de-Reclamaciones-editable.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--green);color:#111;font-size:11px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;flex-shrink:0;">
+          <a href="pdf/BMI-Formulario-de-Reclamaciones-editable.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--green);color:#fff;font-size:11px;font-weight:700;letter-spacing:.5px;text-decoration:none;white-space:nowrap;flex-shrink:0;">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Descargar formulario
           </a>
@@ -1067,15 +1067,15 @@ footer{
           <p style="font-size:13px;color:var(--gray);line-height:1.65;">Usalo cuando pagaste de tu bolsillo — fuera de red, medicamentos o beneficios especiales.</p>
           <div style="display:flex;flex-direction:column;gap:10px;">
             <div style="display:flex;gap:12px;align-items:flex-start;">
-              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</span>
+              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</span>
               <div style="font-size:13px;color:var(--gray);line-height:1.55;"><strong style="color:#1a1a1a;">Descargá el formulario</strong> y completalo con los datos de la atención.</div>
             </div>
             <div style="display:flex;gap:12px;align-items:flex-start;">
-              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</span>
+              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</span>
               <div style="font-size:13px;color:var(--gray);line-height:1.55;"><strong style="color:#1a1a1a;">Adjuntá facturas electrónicas</strong> y recetas o referencias médicas.</div>
             </div>
             <div style="display:flex;gap:12px;align-items:flex-start;">
-              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</span>
+              <span style="width:22px;height:22px;background:var(--nav);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</span>
               <div style="font-size:13px;color:var(--gray);line-height:1.55;"><strong style="color:#1a1a1a;">Envialo por GEV</strong> o directamente a tu ejecutivo de cuenta en Garrett Unicen.</div>
             </div>
           </div>
@@ -1092,7 +1092,7 @@ footer{
         </div>
         <div style="flex:1;min-width:0;">
           <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-light);margin-bottom:2px;">Plataforma digital</div>
-          <div style="font-size:18px;font-weight:900;color:#1a1a1a;">GEV — Garrett Ejecutivo Virtual</div>
+          <div style="font-size:18px;font-weight:700;color:#1a1a1a;">GEV — Garrett Ejecutivo Virtual</div>
         </div>
         <a href="https://gev.garrettbrokers.com" target="_blank" class="gev-cta">Ir a GEV →</a>
       </div>
@@ -1104,7 +1104,7 @@ footer{
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
           </div>
           <div>
-            <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:3px;">Crear reclamo</div>
+            <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:3px;">Crear reclamo</div>
             <div style="font-size:12px;color:var(--gray-light);line-height:1.55;">Iniciá un reclamo de reembolso o pre-autorización directamente desde la plataforma.</div>
           </div>
         </div>
@@ -1114,7 +1114,7 @@ footer{
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
           </div>
           <div>
-            <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:3px;">Adjuntar documentos</div>
+            <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:3px;">Adjuntar documentos</div>
             <div style="font-size:12px;color:var(--gray-light);line-height:1.55;">Subí facturas electrónicas, recetas médicas y resultados de exámenes al reclamo.</div>
           </div>
         </div>
@@ -1124,7 +1124,7 @@ footer{
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           </div>
           <div>
-            <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:3px;">Rastrear estado</div>
+            <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:3px;">Rastrear estado</div>
             <div style="font-size:12px;color:var(--gray-light);line-height:1.55;">Seguí el avance de tu reclamo en tiempo real — desde enviado hasta aprobado o pagado.</div>
           </div>
         </div>
@@ -1134,7 +1134,7 @@ footer{
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
           <div>
-            <div style="font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:3px;">Consultar con tu ejecutivo</div>
+            <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:3px;">Consultar con tu ejecutivo</div>
             <div style="font-size:12px;color:var(--gray-light);line-height:1.55;">Chateá directamente con el equipo de Garrett Unicen desde la plataforma GEV.</div>
           </div>
         </div>
@@ -1171,7 +1171,7 @@ footer{
         <div class="excl-desc">Cualquier tratamiento que no esté incluido explícitamente en las coberturas de la póliza.</div>
       </div>
       <div class="excl-card" style="background:var(--nav);border-color:var(--nav);">
-        <div class="excl-num" style="background:var(--green);color:#111;">06</div>
+        <div class="excl-num" style="background:var(--green);color:#fff;">06</div>
         <div class="excl-title" style="color:#fff;">¿Más dudas?</div>
         <div class="excl-desc" style="color:rgba(255,255,255,0.6);">Para la lista completa de exclusiones, contactá a tu ejecutivo de cuenta en Garrett Unicen.</div>
       </div>
